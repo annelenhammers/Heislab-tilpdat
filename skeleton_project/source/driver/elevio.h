@@ -19,16 +19,16 @@ typedef enum {
 } ButtonType;
 
 
-void elevio_init(void);
+void elevio_init(void); //initialiserer heissystemet
 
-void elevio_motorDirection(MotorDirection dirn);
-void elevio_buttonLamp(int floor, ButtonType button, int value);
-void elevio_floorIndicator(int floor);
-void elevio_doorOpenLamp(int value);
-void elevio_stopLamp(int value);
+void elevio_motorDirection(MotorDirection dirn); //får motor til å bevege seg i angitt retning
+void elevio_buttonLamp(int floor, ButtonType button, int value); // setter lys til alle knapper
+void elevio_floorIndicator(int floor); // oppdaterer etasjeindikator
+void elevio_doorOpenLamp(int value); // value er 0 eller 1, kontrollerer lampelys (på/av)
+void elevio_stopLamp(int value); // value er 0 eller 1, kontrollerer stopplys (på/av)
 
-int elevio_callButton(int floor, ButtonType button);
-int elevio_floorSensor(void);
-int elevio_stopButton(void);
-int elevio_obstruction(void);
+int elevio_callButton(int floor, ButtonType button); //setter at knapp er trykket
+int elevio_floorSensor(void); //gir ut etasjestate
+int elevio_stopButton(void); //gir stoppbutton-state
+int elevio_obstruction(void); //gir ut obsruksjonsstate
 
