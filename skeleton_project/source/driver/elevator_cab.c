@@ -1,15 +1,27 @@
 #include "elevator_cab.h"
 
-void stop_motor() {
-    MotorDirection direction = DIRN_STOP;
-    elevio_motorDirection(direction);
+
+void setMotor(Elevator_cab* elevator_cab) {
+    if(elevator_cab -> direction == DIRN_STOP) {
+        elevio_motorDirection(DIRN_STOP);
+    }
+    if (elevator_cab -> direction == DIRN_UP) {
+        elevio_motorDirection(DIRN_UP);
+    }
+    if (elevator_cab -> direction == DIRN_DOWN) {
+        elevio_motorDirection(DIRN_DOWN);
+    }
 }
-void motor_up() {
-    MotorDirection direction = DIRN_UP;
-    elevio_motorDirection(direction);
+
+void setState(Elevator_cab* elevator_cab, bool state) {
+    elevator_cab -> state = state;
+    
+
 }
-void motor_down() {
-    MotorDirection direction = DIRN_DOWN;
-    elevio_motorDirection(direction);
+void getState(Elevator_cab* Elevator_cab) {
+
 }
+
+
+
 
