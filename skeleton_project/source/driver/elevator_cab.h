@@ -17,14 +17,13 @@ typedef struct
 }Elevator_cab;
 
 void setMotor(Elevator_cab* elevator_cab);
-
 void setState(Elevator_cab* elevator_cab, bool state);
-void getState(Elevator_cab* Elevator_cab);
+bool getState(Elevator_cab* elevator_cab);
 void setDirection(Elevator_cab* elevator_cab, MotorDirection direction);
-void getDirection(Elevator_cab* elevator_cab);
-void setFloor(Elevator_cab* elevator_cab, Floor floor );
-void getFloor();
-void delete_elevator_cab();
+MotorDirection getDirection(Elevator_cab* elevator_cab);
+void setFloor(Elevator_cab* elevator_cab);
+Floor getFloor(Elevator_cab* elevator_cab);
+void delete_elevator_cab(Elevator_cab* elevator_cab);
 
 
 
