@@ -2,7 +2,7 @@
 
 #include "elevio.h"
 #include "con_load.h"
-#include "floor.h"
+#include "../floor.h"
 #include <stdbool.h>
 #include <stdio.h>
 
