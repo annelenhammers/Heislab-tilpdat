@@ -2,11 +2,15 @@
 
 #include "elevio.h"
 #include "con_load.h"
-#include "../floor.h"
 #include <stdbool.h>
 #include <stdio.h>
 
-
+typedef enum {
+    ONE =  1,
+    TWO = 2,
+    THREE = 3,
+    FOUR = 4
+}Floor;
 
 typedef struct 
 {
