@@ -22,7 +22,7 @@ typedef struct {
     QueueState* next;
 }Queue;
 
-QueueState* Queuestate(QueueDirection queuedirection, Floor floor);
+QueueState* queuestate(QueueDirection queuedirection, Floor floor);
 void DestoryQueue(Queue* queue);
 void clearQueue(Queue* queue);
 

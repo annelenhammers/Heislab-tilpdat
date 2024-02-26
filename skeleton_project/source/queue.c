@@ -1,7 +1,7 @@
 #include "queue.h"
 #include <stddef.h>
 
-QueueState* Queuestate(QueueDirection queuedirection, Floor floor){
+QueueState* queuestate(QueueDirection queuedirection, Floor floor){
     QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
     questate -> floor = floor;
     questate -> queuedirection = queuedirection;
