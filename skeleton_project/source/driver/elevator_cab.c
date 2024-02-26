@@ -47,7 +47,6 @@ void delete_elevator_cab(Elevator_cab* elevator_cab) {
 }
 
 void initialize_elevator_cab(Elevator_cab* elevator_cab) {
-    setState(elevator_cab, true);
     while(read_current_floor(elevator_cab) != 1) {
         _setFloor(elevator_cab, read_current_floor());
         setDirection(elevator_cab, DIRN_DOWN);
