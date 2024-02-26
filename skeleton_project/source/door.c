@@ -10,7 +10,6 @@ int getObstrctionState(Door* door) {
 void setDoorState(Door* door, DoorState doorstate) {
     door -> doorstate = doorstate;   
 }
-
 void setObstructionState(Door* door, int obstruction) {
     door -> obstruction = obstruction;
 }
