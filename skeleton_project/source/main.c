@@ -3,11 +3,14 @@
 #include <signal.h>
 #include <time.h>
 #include "driver/elevio.h"
+#include "driver/elevator_cab.h"
 
 
 
 int main(){
     elevio_init();
+    Elevator_cab* elevator_cab = elevator_cab_constructor(read_current_floor(), DIRN_STOP, true); 
+    initialize_elevator_cab(elevator_cab);
     
     printf("=== Example Program ===\n");
     printf("Press the stop button on the elevator panel to exit\n");
