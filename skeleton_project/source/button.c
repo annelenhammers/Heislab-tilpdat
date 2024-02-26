@@ -7,3 +7,4 @@ ButtonState getStopButtonState(StopButton* stopbutton) {
     return stopbutton -> state;
 }
 
+//hei
