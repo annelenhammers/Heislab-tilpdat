@@ -5,7 +5,7 @@
 typedef enum {
     UP = 0,
     DOWN = 1,
-    
+
 }QueueDirection;
 
 typedef struct{
