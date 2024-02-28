@@ -15,23 +15,35 @@ void setObstructionState(Door* door, int obstruction) {
 }
 
 void _openDoor(Door* door) {
-    elevio_doorOpenLamp(1);
-    setDoorState(door, OPEN);
-    clock_t start;
-    double time;
-    while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0){ }
-    elevio_doorOpenLamp(0);
-    setDoorState(door, CLOSED);
+    if(door -> doorstate == CLOSED) {
+        elevio_doorOpenLamp(1);
+        setDoorState(door, OPEN);
+    }
+    
+}
+void close_door(Door* door) {
+    if(door -> doorstate == OPEN) {
+        elevio_doorOpenLamp(0);
+        setDoorState(door, CLOSED);
+    }
 }
 
-void obstruction(Door* door) {
+/*clock_t start;
+double time;
+while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0){ }
+elevio_doorOpenLamp(0);
+setDoorState(door, CLOSED);*/
+
+/*void obstruction(Door* door) {
     while(elevio_obstruction() == 1 && door -> doorstate == OPEN) {
         elevio_doorOpenLamp(1);
         if(elevio_doorOpenLamp() == 0) {
             _openDoor(door);
         }
     }
-}
+}*/ 
+
+//Må fikse obstruction etter litt strukturendring hihihihihi
 
 void destroyDoor(Door* door) {
     free(door);
