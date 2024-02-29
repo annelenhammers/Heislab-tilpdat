@@ -5,52 +5,43 @@
 
 
 typedef enum {
-    UP = 0,
-    DOWN = 1,
-} QueueDirection;
+    UP = 1,
+    DOWN = -1,
+    IDLE = 0
+}QueueDirection;
 
 
 typedef struct {
 
     QueueDirection queue_direction;
     Floor floor;
-    ButtonState button_state;
-    QueueState* previous;
-    QueueState* next; 
-    QueueState* new_order;             
 
-} QueueState;
+    ButtonState button_state;
+    QueueState* new_order;             
+    QueueState* prev;
+    QueueState* next;              
+
+
+}QueueState;
 
 
 typedef struct {
 
     int size;
-
-    QueueState* previous;
     QueueState* head;
     QueueState* tail;
-    QueueState* next;
+    
+}Queue;
 
-} Queue;
-
-
-typedef struct {
-
-    int direction_of_current_order;
-    int direction_of_next_order;
-    int floor_of_current_order;
-    int floor_of_next_order;
-
-} StateMachineUtils;
-
-
-QueueState* queue_state_constructor(QueueDirection queue_direction, Floor floor);
-void queue_state_destroy(QueueState* queue_state);
+QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor);
+void queue_state_destroy(QueueState* queuestate);
 void queue_destroy(Queue* queue);
 void queue_clear(Queue* queue);
 bool queue_empty(Queue* queue);
 QueueState* queue_pop(Queue* queue);
-void queue_add(Queue* queue, QueueState* queue_state);
+void AddToQueue(Queue* queue, QueueState* queuestate);
+void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev);
+
 
 typedef void (*UpdateQueueOfOrders)(ButtonState);
 UpdateQueueOfOrders update_queue[N_FLOORS][N_BUTTONS];

@@ -1,5 +1,10 @@
 #include "door.h"
 
+Door* door_constructor(DoorState doorstate, int obstruction) {
+    Door* door = (Door*)malloc(sizeof(Door));
+    door -> doorstate = doorstate;
+    door -> obstruction = obstruction;
+}
 
 DoorState getDoorState(Door* door) {
     return door -> doorstate;
@@ -33,7 +38,7 @@ void timer() {
     double time;
     while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0) {}
     elevio_doorOpenLamp(0);
-    
+
 }
 /*clock_t start;
 double time;
@@ -56,7 +61,9 @@ void destroyDoor(Door* door) {
     free(door);
 }
 
-//må implementere stopp-funskjonalitet(implementeres i elevator_cab())
-//må implementere at dør skal vere lukka når active = false (implementeres i elevator_cab())
+void initialize_door(Door* door, int obstruction) {
+    door_constructor(CLOSED, 0);
+    close_door(door);
+}
 
 

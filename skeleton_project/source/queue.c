@@ -2,36 +2,14 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-/*variabler som trengs:
-current elevator floor?
-*/
-
-int queue_size = 0;
-
-
-QueueState* queue_state_constructor(QueueDirection queue_direction, Floor floor) {
-    
-    QueueState* queue_state = (QueueState*)malloc(sizeof(QueueState));
-    
-    queue_state -> floor = floor;
-    queue_state -> queue_direction = queue_direction;
-    queue_state -> previous = NULL;
-    
-    return queue_state;
+QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor){
+    QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
+    questate -> floor = floor;
+    questate -> queue_direction = queuedirection;
+    questate -> prev = NULL;
+    return questate;
 }
 
-Queue* queue_init() {
-    
-    Queue* queue = (Queue*)malloc(sizeof(Queue));
-    
-    queue -> size = 0;
-    queue -> previous = NULL;
-    queue -> head = NULL;
-    queue -> tail = NULL;
-    queue -> next = NULL;
-
-    return queue;
-}
 
 void queue_state_destroy(QueueState* queue_state) {
     free(queue_state);
@@ -60,28 +38,38 @@ QueueState* queue_pop(Queue* queue) {
 
     if(queue_empty(queue) == true) {
         return NULL;
-    } else {
+    }
+    else {
     state = queue -> head;
-    queue -> head = queue -> head -> previous;
+    queue -> head = queue -> head -> prev;
     queue -> size--;
 
     return state;
     }
 }
 
-void queue_add(Queue* queue, QueueState* queue_state) {
-    
-    queue -> previous = NULL;
-
+void AddToQueue(Queue* queue, QueueState* queuestate) {
+    queuestate -> prev = NULL;
     if(queue -> size == 0) {
-        queue -> tail = queue_state;
-        queue -> head = queue_state;
-    } else {
-        queue -> tail -> previous = queue_state;
-        queue -> tail = queue_state;
+        queue -> tail = queuestate;
+        queue -> head = queuestate;
     }
-
+    else {
+        queue -> tail -> prev = queuestate;
+        queue -> tail = queuestate;
+    }
     queue -> size++;
+}
+
+void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
+    
+    if(elevio_floorIndicator > 0) {
+        queuestateconstructor(DOWN, FIRST_FLOOR);
+    }
+    else {
+        queuestateconstructor(IDLE, FIRST_FLOOR);
+    }
+    
 }
 
 QueueState* queue_latest_order(Queue* queue) {
