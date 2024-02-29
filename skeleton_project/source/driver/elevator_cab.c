@@ -48,7 +48,7 @@ void delete_elevator_cab(Elevator_cab* elevator_cab) {
 
 void initialize_elevator_cab(Elevator_cab* elevator_cab) {
     while(read_current_floor(elevator_cab) != FIRST_FLOOR) {
-        _setFloor(elevator_cab, read_current_floor());
+        _setFloor(elevator_cab, read_current_floor(elevator_cab));
         setDirection(elevator_cab, DIRN_DOWN);
         if(read_current_floor(elevator_cab) == FIRST_FLOOR) {
             setDirection(elevator_cab, DIRN_STOP);
@@ -64,10 +64,18 @@ void initialize_elevator_cab(Elevator_cab* elevator_cab) {
 
 Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirection, bool state) {
     Elevator_cab* elevator_cab = (Elevator_cab*)malloc(sizeof(Elevator_cab));
+    if (elevator_cab == NULL){
+        fprintf(stderr, "Error: the elevator cab's memory allocation failed\n");
+        return NULL;
+    }
     elevator_cab -> floor = floor;
     elevator_cab -> direction = motordirection;
     elevator_cab -> state = state;   
     return elevator_cab;
+}
+
+void delete_elevator_cab(Elevator_cab* elevator_cab){
+    free(elevator_cab);
 }
 
 
