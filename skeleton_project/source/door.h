@@ -20,6 +20,7 @@ void _openDoor(Door* door);
 void close_door(Door* door);
 void obstruction(Door* door);
 void destroyDoor(Door* door);
+void timer();
 
 
 
