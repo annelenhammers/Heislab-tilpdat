@@ -31,7 +31,7 @@ bool EmptyQueue(Queue* queue) {
 }
 QueueState* PopQueue(Queue* queue) {
     QueueState* state;
-    
+
     if(EmptyQueue(queue) == true) {
         return NULL;
     }
@@ -48,12 +48,12 @@ QueueState* PopQueue(Queue* queue) {
 void AddToQueue(Queue* queue, QueueState* queuestate) {
     queue -> prevoius = NULL;
     if(queue -> size == 0) {
-        queue -> tail = queue;
-        queue -> head = queue;
+        queue -> tail = queuestate;
+        queue -> head = queuestate;
     }
     else {
-        queue -> tail -> prevoius = queue;
-        queue -> tail = queue;
+        queue -> tail -> prevoius = queuestate;
+        queue -> tail = queuestate;
     }
     queue -> size++;
 
