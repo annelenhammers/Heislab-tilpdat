@@ -1,7 +1,7 @@
 #include "queue.h"
 #include <stddef.h>
 
-QueueState* queuestate(QueueDirection queuedirection, Floor floor){
+QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor){
     QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
     questate -> floor = floor;
     questate -> queuedirection = queuedirection;
@@ -9,9 +9,54 @@ QueueState* queuestate(QueueDirection queuedirection, Floor floor){
     return questate;
 }
 
+void DestoryQueueState(QueueState* queuestate) {
+    free(queuestate);
+}
+
 void DestoryQueue(Queue* queue) {
+    clearQueue(queue);
     free(queue);
 }
+
 void clearQueue(Queue* queue) {
+    while(EmptyQueue(queue) != true) {
+        QueueState* queuestate = PopQueue(queue);
+        DestoryQueue(queuestate);
+    }
     
 }
+
+bool EmptyQueue(Queue* queue) {
+    return queue -> size == 0;
+}
+QueueState* PopQueue(Queue* queue) {
+    QueueState* state;
+    
+    if(EmptyQueue(queue) == true) {
+        return NULL;
+    }
+
+    else {
+    state = queue -> head;
+    queue -> head = queue -> head -> prevoius;
+    queue -> size--;
+
+    return state;
+    }
+}
+
+void AddToQueue(Queue* queue, QueueState* queuestate) {
+    queue -> prevoius = NULL;
+    if(queue -> size == 0) {
+        queue -> tail = queue;
+        queue -> head = queue;
+    }
+    else {
+        queue -> tail -> prevoius = queue;
+        queue -> tail = queue;
+    }
+    queue -> size++;
+
+}
+
+

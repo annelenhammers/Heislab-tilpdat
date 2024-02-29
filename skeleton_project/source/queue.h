@@ -2,6 +2,7 @@
 #include "driver/elevator_cab.h"
 
 
+
 typedef enum {
     UP = 0,
     DOWN = 1,
@@ -22,7 +23,15 @@ typedef struct {
     QueueState* next;
 }Queue;
 
-QueueState* queuestate(QueueDirection queuedirection, Floor floor);
+QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor);
+void DestoryQueueState(QueueState* queuestate);
 void DestoryQueue(Queue* queue);
 void clearQueue(Queue* queue);
+bool EmptyQueue(Queue* queue);
+QueueState* PopQueue(Queue* queue);
+void AddToQueue(Queue* queue, QueueState* queuestate);
+
+
+
+
 

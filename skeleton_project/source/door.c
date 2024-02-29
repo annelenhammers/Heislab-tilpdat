@@ -28,6 +28,13 @@ void close_door(Door* door) {
     }
 }
 
+void timer() {
+    clock_t start;
+    double time;
+    while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0) {}
+    elevio_doorOpenLamp(0);
+    
+}
 /*clock_t start;
 double time;
 while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0){ }
