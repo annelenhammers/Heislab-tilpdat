@@ -6,10 +6,10 @@
 #include <stdio.h>
 
 typedef enum {
-    ONE =  1,
-    TWO = 2,
-    THREE = 3,
-    FOUR = 4
+    FIRST_FLOOR =  1,
+    SECOND_FLOOR = 2,
+    THIRD_FLOOR = 3,
+    FOURTH_FLOOR = 4
 }Floor;
 
 typedef struct 

@@ -47,17 +47,17 @@ void delete_elevator_cab(Elevator_cab* elevator_cab) {
 }
 
 void initialize_elevator_cab(Elevator_cab* elevator_cab) {
-    while(read_current_floor(elevator_cab) != 1) {
+    while(read_current_floor(elevator_cab) != FIRST_FLOOR) {
         _setFloor(elevator_cab, read_current_floor());
         setDirection(elevator_cab, DIRN_DOWN);
-        if(read_current_floor(elevator_cab) == 1) {
+        if(read_current_floor(elevator_cab) == FIRST_FLOOR) {
             setDirection(elevator_cab, DIRN_STOP);
             break;
         }
     }
-    if(read_current_floor() == 1) {
+    if(read_current_floor(elevator_cab) == FIRST_FLOOR) {
         setDirection(elevator_cab, DIRN_STOP);
-        _setFloor(elevator_cab, ONE);
+        _setFloor(elevator_cab, FIRST_FLOOR);
     }
     //legg til stoppknapp-funksjonalitet 
 }
