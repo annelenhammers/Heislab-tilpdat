@@ -1,5 +1,6 @@
 #include "queue.h"
 #include <stddef.h>
+#include <stdbool.h>
 
 /*variabler som trengs:
 current elevator floor?
@@ -94,4 +95,39 @@ QueueState* queue_order(Queue* queue, int order_position) {
     }
     return state_of_order;
 }   
+
+void update_queue_init(){
+
+    update_queue[0][BUTTON_HALL_UP] = update_floor_one_up;
+    update_queue[1][BUTTON_HALL_UP] = update_floor_two_up;
+    update_queue[2][BUTTON_HALL_UP] = update_floor_three_up;
+
+    update_queue[1][BUTTON_HALL_DOWN] = update_floor_two_down;
+    update_queue[2][BUTTON_HALL_DOWN] = update_floor_three_down;
+    update_queue[3][BUTTON_HALL_DOWN] = update_floor_four_down;
+
+    update_queue[0][BUTTON_CAB] = update_lamp_one;
+    update_queue[1][BUTTON_CAB] = update_lamp_two;
+    update_queue[2][BUTTON_CAB] = update_lamp_three;
+    update_queue[3][BUTTON_CAB] = update_lamp_four;
+}
+
+int queue_fix_orders(Queue** head, QueueState* new_order) {
+    if (new_order == NULL) {
+        return 1;
+    }
+    new_order -> next = *head;
+    if (*head != NULL){
+        (*head) -> previous = new_order;
+    }
+
+    *head = new_order;
+    new_order -> previous = NULL;
+
+    queue_size++;
+
+    update_queue[new_order -> floor][new_order -> queue_direction](new_order -> button_state);
+
+    return 0;
+}
 
