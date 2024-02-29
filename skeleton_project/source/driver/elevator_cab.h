@@ -5,12 +5,14 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-typedef enum {
-    ONE =  1,
-    TWO = 2,
-    THREE = 3,
-    FOUR = 4
-}Floor;
+typedef enum 
+{
+    FIRST_FLOOR =  1,
+    SECOND_FLOOR = 2,
+    THIRD_FLOOR = 3,
+    FOURTH_FLOOR = 4
+
+} Floor;
 
 typedef struct 
 {
@@ -18,7 +20,8 @@ typedef struct
     MotorDirection direction;
     bool state;                 //state = true; active state = false; inactive
 
-}Elevator_cab;
+} Elevator_cab;
+
 
 void setMotor(Elevator_cab* elevator_cab);
 void setState(Elevator_cab* elevator_cab, bool state);

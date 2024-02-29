@@ -3,7 +3,7 @@
 
 typedef enum {
 
-    PRESSED = 1,
+    DEPRESSED = 1,
     UNPRESSED = 0
 
 }ButtonState;
@@ -39,8 +39,20 @@ typedef struct {
 
 }Floor_Panel;
 
-Floor_Panel* floor_panel_constructor(ButtonState floor_one_up, ButtonState floor_two_up, ButtonState floor_three_up, ButtonState floor_two_down, ButtonState floor_three_down, ButtonState floor_four_down);
-Elevator_panel* elevator_panel_constructor(ButtonState first_floor, ButtonState second_floor, ButtonState third_floor, ButtonState fourth_floor, ButtonState door_open, ButtonState stop_button, bool obstruction);
+Floor_Panel* floor_panel_constructor(ButtonState floor_one_up, 
+                                        ButtonState floor_two_up, 
+                                        ButtonState floor_three_up, 
+                                        ButtonState floor_two_down, 
+                                        ButtonState floor_three_down, 
+                                        ButtonState floor_four_down);
+
+Elevator_panel* elevator_panel_constructor(ButtonState first_floor, 
+                                            ButtonState second_floor, 
+                                            ButtonState third_floor, 
+                                            ButtonState fourth_floor, 
+                                            ButtonState door_open, 
+                                            ButtonState stop_button, 
+                                            bool obstruction);
 
 
 void update_floor_one(Elevator_panel* elevator_panel, ButtonState floor_one);
