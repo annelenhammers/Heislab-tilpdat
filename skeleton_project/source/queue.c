@@ -1,37 +1,41 @@
 #include "queue.h"
 #include <stddef.h>
 
-QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor){
+QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor){
     QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
     questate -> floor = floor;
-    questate -> queuedirection = queuedirection;
+    questate -> queue_direction = queuedirection;
     questate -> prev = NULL;
     return questate;
 }
 
-void DestoryQueueState(QueueState* queuestate) {
-    free(queuestate);
+
+void queue_state_destroy(QueueState* queue_state) {
+    free(queue_state);
 }
 
-void DestoryQueue(Queue* queue) {
-    clearQueue(queue);
+void queue_destroy(Queue* queue) {
+    queue_clear(queue);
     free(queue);
 }
 
-void clearQueue(Queue* queue) {
-    while(EmptyQueue(queue) != true) {
-        QueueState* queuestate = PopQueue(queue);
-        DestoryQueue(queuestate);
-    }
+void queue_clear(Queue* queue) {
+    
+    while(queue_empty(queue) != true) {
+        QueueState* queue_state = queue_pop(queue);
+        queue_destroy(queue_state);
+    } 
 }
 
-bool EmptyQueue(Queue* queue) {
+bool queue_empty(Queue* queue) {
     return queue -> size == 0;
 }
-QueueState* PopQueue(Queue* queue) {
+
+QueueState* queue_pop(Queue* queue) {
+   
     QueueState* state;
 
-    if(EmptyQueue(queue) == true) {
+    if(queue_empty(queue) == true) {
         return NULL;
     }
     else {
@@ -57,6 +61,7 @@ void AddToQueue(Queue* queue, QueueState* queuestate) {
 }
 
 void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
+    
     if(elevio_floorIndicator > 0) {
         queuestateconstructor(DOWN, FIRST_FLOOR);
     }
@@ -66,4 +71,15 @@ void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
     
 }
 
+QueueState* queue_latest_order(Queue* queue) {
+    return queue -> tail;
+}
+
+QueueState* queue_order(Queue* queue, int order_position) {
+    QueueState* state_of_order = queue -> head;
+    for (int i = 0; i < order_position && state_of_order != NULL; i++) {
+        state_of_order = state_of_order -> next;
+    }
+    return state_of_order;
+}   
 

@@ -1,6 +1,5 @@
 #pragma once
-#include "driver/elevator_cab.h"
-
+#include "../driver/elevator_cab.h"
 
 
 typedef enum {
@@ -9,25 +8,31 @@ typedef enum {
     IDLE = 0
 }QueueDirection;
 
-typedef struct{
-    QueueDirection queuedirection;
-    Floor floor;
-    QueueState* prev;
-    QueueState* next;
-}QueueState;
 
 typedef struct {
+
+    QueueDirection queue_direction;
+    Floor floor;
+    QueueState* prev;
+    QueueState* next;              
+
+}QueueState;
+
+
+typedef struct {
+
     int size;
     QueueState* head;
     QueueState* tail;
+    
 }Queue;
 
-QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor);
-void DestoryQueueState(QueueState* queuestate);
-void DestoryQueue(Queue* queue);
-void clearQueue(Queue* queue);
-bool EmptyQueue(Queue* queue);
-QueueState* PopQueue(Queue* queue);
+QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor);
+void queue_state_destroy(QueueState* queuestate);
+void queue_destroy(Queue* queue);
+void queue_clear(Queue* queue);
+bool queue_empty(Queue* queue);
+QueueState* queue_pop(Queue* queue);
 void AddToQueue(Queue* queue, QueueState* queuestate);
 void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev);
 
