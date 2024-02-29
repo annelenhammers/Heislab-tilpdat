@@ -1,4 +1,5 @@
 #pragma once
+
 #include "time.h"
 #include "panels.h"
 
@@ -12,7 +13,6 @@ typedef struct {
     int obstruction;
 }Door;
 
-DoorState getDoorState(Door* door);
 int getObstrctionState(Door* door);
 void setDoorState(Door* door, DoorState doorstate);
 void setObstructionState(Door* door, int obstruction);
@@ -21,7 +21,9 @@ void close_door(Door* door);
 void obstruction(Door* door);
 void destroyDoor(Door* door);
 void timer();
-
+void initialize_door(Door* door, int obstruction);
+Door* door_constructor(DoorState Door, int obstruction);
+DoorState getDoorState(Door* door);
 
 
 

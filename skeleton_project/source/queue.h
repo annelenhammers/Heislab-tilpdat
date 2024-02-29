@@ -4,23 +4,22 @@
 
 
 typedef enum {
-    UP = 0,
-    DOWN = 1,
-
+    UP = 1,
+    DOWN = -1,
+    IDLE = 0
 }QueueDirection;
 
 typedef struct{
     QueueDirection queuedirection;
     Floor floor;
-    QueueState* prevoius;
+    QueueState* prev;
+    QueueState* next;
 }QueueState;
 
 typedef struct {
     int size;
-    QueueState* prevoius;
     QueueState* head;
     QueueState* tail;
-    QueueState* next;
 }Queue;
 
 QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor);
@@ -30,6 +29,8 @@ void clearQueue(Queue* queue);
 bool EmptyQueue(Queue* queue);
 QueueState* PopQueue(Queue* queue);
 void AddToQueue(Queue* queue, QueueState* queuestate);
+void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev);
+
 
 
 

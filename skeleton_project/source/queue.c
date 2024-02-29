@@ -5,7 +5,7 @@ QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor){
     QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
     questate -> floor = floor;
     questate -> queuedirection = queuedirection;
-    questate -> prevoius = NULL;
+    questate -> prev = NULL;
     return questate;
 }
 
@@ -23,7 +23,6 @@ void clearQueue(Queue* queue) {
         QueueState* queuestate = PopQueue(queue);
         DestoryQueue(queuestate);
     }
-    
 }
 
 bool EmptyQueue(Queue* queue) {
@@ -35,10 +34,9 @@ QueueState* PopQueue(Queue* queue) {
     if(EmptyQueue(queue) == true) {
         return NULL;
     }
-
     else {
     state = queue -> head;
-    queue -> head = queue -> head -> prevoius;
+    queue -> head = queue -> head -> prev;
     queue -> size--;
 
     return state;
@@ -46,17 +44,26 @@ QueueState* PopQueue(Queue* queue) {
 }
 
 void AddToQueue(Queue* queue, QueueState* queuestate) {
-    queue -> prevoius = NULL;
+    queuestate -> prev = NULL;
     if(queue -> size == 0) {
         queue -> tail = queuestate;
         queue -> head = queuestate;
     }
     else {
-        queue -> tail -> prevoius = queuestate;
+        queue -> tail -> prev = queuestate;
         queue -> tail = queuestate;
     }
     queue -> size++;
+}
 
+void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
+    if(elevio_floorIndicator > 0) {
+        queuestateconstructor(DOWN, FIRST_FLOOR);
+    }
+    else {
+        queuestateconstructor(IDLE, FIRST_FLOOR);
+    }
+    
 }
 
 

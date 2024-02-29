@@ -1,6 +1,6 @@
 #include "panels.h"
 
-Floor_Panel* floor_panel_constructor(ButtonState floor_one_up, ButtonState floor_two_up, ButtonState floor_three_up, ButtonState floor_two_down, ButtonState floor_three_down, ButtonState floor_four_down) {
+Floor_Panel* floor_panel_constructor(ButtonState floor_one_up, ButtonState floor_two_up, ButtonState floor_three_up, ButtonState floor_two_down, ButtonState floor_three_down, ButtonState floor_four_down,bool lamp_one, bool lamp_two, bool lamp_three, bool lamp_four) {
     Floor_Panel* floor_panel = (Floor_Panel*)malloc(sizeof(Floor_Panel));
 
     floor_panel -> floor_one_up = floor_one_up;
@@ -11,6 +11,18 @@ Floor_Panel* floor_panel_constructor(ButtonState floor_one_up, ButtonState floor
     floor_panel -> floor_three_down = floor_three_down;
     floor_panel -> floor_four_down = floor_four_down;
 
+    elevio_buttonLamp(0, BUTTON_HALL_UP, floor_one_up);
+    elevio_buttonLamp(1, BUTTON_HALL_UP, floor_two_up);
+    elevio_buttonLamp(2, BUTTON_HALL_UP, floor_three_up);
+
+    elevio_buttonLamp(1, BUTTON_HALL_DOWN, floor_two_down);
+    elevio_buttonLamp(2, BUTTON_HALL_DOWN, floor_three_down);
+    elevio_buttonLamp(3, BUTTON_HALL_DOWN, floor_four_down);
+
+    update_lamp_one(floor_panel, false);
+    update_lamp_two(floor_panel, false);
+    update_lamp_three(floor_panel, false);
+    update_lamp_four(floor_panel, false);
 }
 
 //Konstruktør kalles for å initialisere
@@ -24,6 +36,12 @@ Elevator_panel* elevator_panel_constructor(ButtonState first_floor, ButtonState 
     elevator_panel -> fourth_floor = third_floor;
     elevator_panel -> stop_button = stop_button;
     elevator_panel -> obstruction = obstruction;
+
+    elevio_buttonLamp(0, BUTTON_CAB, first_floor);
+    elevio_buttonLamp(1, BUTTON_CAB, second_floor);
+    elevio_buttonLamp(2, BUTTON_CAB, third_floor);
+    elevio_buttonLamp(3, BUTTON_CAB, fourth_floor);
+
 }
 
 
@@ -113,32 +131,37 @@ void update_floor_four_down(Floor_Panel* floor_panel, ButtonState buttonstate) {
         }
 }
 
-void update_lamp_one(Floor_Panel* floor_panel, ButtonState buttonstate) {
-    if(floor_panel -> lamp_one != buttonstate) {
-            floor_panel -> lamp_one = buttonstate;
+void update_lamp_one(Floor_Panel* floor_panel, bool light) {
+    if(floor_panel -> lamp_one != light) {
+            floor_panel -> lamp_one = light;
             elevio_floorIndicator(0);
         }
 }
-void update_lamp_two(Floor_Panel* floor_panel, ButtonState buttonstate) {
-    if(floor_panel -> lamp_two != buttonstate) {
-            floor_panel -> lamp_two = buttonstate;
+void update_lamp_two(Floor_Panel* floor_panel, bool light) {
+    if(floor_panel -> lamp_two != light) {
+            floor_panel -> lamp_two = light;
             elevio_floorIndicator(1);
         }
 
 }
-void update_lamp_three(Floor_Panel* floor_panel, ButtonState buttonstate) {
-    if(floor_panel -> lamp_three != buttonstate) {
-            floor_panel -> lamp_three = buttonstate;
+void update_lamp_three(Floor_Panel* floor_panel, bool light) {
+    if(floor_panel -> lamp_three != light) {
+            floor_panel -> lamp_three = light;
             elevio_floorIndicator(2);
         }
 }
-void update_lamp_four(Floor_Panel* floor_panel, ButtonState buttonstate) {
-    if(floor_panel -> lamp_four != buttonstate) {
-            floor_panel -> lamp_four = buttonstate;
+void update_lamp_four(Floor_Panel* floor_panel, bool light) {
+    if(floor_panel -> lamp_four != light) {
+            floor_panel -> lamp_four = light;
             elevio_floorIndicator(3);
         }
 }
 
-
+void initialize_floor_panel(Floor_Panel* floor_panel) {
+    Floor_Panel* fl = floor_panel_constructor(UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, false, false, false, false);  
+}
+void initialize_elevator_panel(Elevator_panel* elevator_panel) {
+    Elevator_panel* el = elevator_panel_constructor(UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, false); 
+}
 
 

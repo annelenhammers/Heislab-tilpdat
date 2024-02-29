@@ -31,10 +31,10 @@ typedef struct {
     ButtonState floor_three_down;
     ButtonState floor_four_down;
 
-    ButtonState lamp_one;
-    ButtonState lamp_two;
-    ButtonState lamp_three;
-    ButtonState lamp_four;
+    bool lamp_one;
+    bool lamp_two;
+    bool lamp_three;
+    bool lamp_four;
 
 
 }Floor_Panel;
@@ -44,7 +44,9 @@ Floor_Panel* floor_panel_constructor(ButtonState floor_one_up,
                                         ButtonState floor_three_up, 
                                         ButtonState floor_two_down, 
                                         ButtonState floor_three_down, 
-                                        ButtonState floor_four_down);
+                                        ButtonState floor_four_down,
+                                        bool lamp_one, bool lamp_two,
+                                        bool lamp_three, bool lamp_four);
 
 Elevator_panel* elevator_panel_constructor(ButtonState first_floor, 
                                             ButtonState second_floor, 
@@ -71,11 +73,12 @@ void update_floor_two_down(Floor_Panel* floor_panel, ButtonState buttonstate);
 void update_floor_three_down(Floor_Panel* floor_panel, ButtonState buttonstate);
 void update_floor_four_down(Floor_Panel* floor_panel, ButtonState buttonstate);
 
-void update_lamp_one(Floor_Panel* floor_panel, ButtonState buttonstate);
-void update_lamp_two(Floor_Panel* floor_panel, ButtonState buttonstate);
-void update_lamp_three(Floor_Panel* floor_panel, ButtonState buttonstate);
-void update_lamp_four(Floor_Panel* floor_panel, ButtonState buttonstate);
-
+void update_lamp_one(Floor_Panel* floor_panel, bool light);
+void update_lamp_two(Floor_Panel* floor_panel, bool light);
+void update_lamp_three(Floor_Panel* floor_panel, bool light);
+void update_lamp_four(Floor_Panel* floor_panel, bool light);
+void initialize_floor_panel(Floor_Panel* floor_panel);
+void initialize_elevator_panel(Elevator_panel* elevator_panel);
 
 
 
