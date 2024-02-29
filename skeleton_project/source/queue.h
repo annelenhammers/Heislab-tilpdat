@@ -1,35 +1,52 @@
 #pragma once
-#include "driver/elevator_cab.h"
-
+#include "../driver/elevator_cab.h"
 
 
 typedef enum {
     UP = 0,
     DOWN = 1,
+} QueueDirection;
 
-}QueueDirection;
-
-typedef struct{
-    QueueDirection queuedirection;
-    Floor floor;
-    QueueState* prevoius;
-}QueueState;
 
 typedef struct {
+
+    QueueDirection queue_direction;
+    Floor floor;
+    QueueState* previous;
+    QueueState* next;              
+
+} QueueState;
+
+
+typedef struct {
+
     int size;
-    QueueState* prevoius;
+
+    QueueState* previous;
     QueueState* head;
     QueueState* tail;
     QueueState* next;
-}Queue;
 
-QueueState* queuestateconstructor(QueueDirection queuedirection, Floor floor);
-void DestoryQueueState(QueueState* queuestate);
-void DestoryQueue(Queue* queue);
-void clearQueue(Queue* queue);
-bool EmptyQueue(Queue* queue);
-QueueState* PopQueue(Queue* queue);
-void AddToQueue(Queue* queue, QueueState* queuestate);
+} Queue;
+
+
+typedef struct {
+
+    int direction_of_current_order;
+    int direction_of_next_order;
+    int floor_of_current_order;
+    int floor_of_next_order;
+
+} StateMachineUtils;
+
+
+QueueState* queue_state_constructor(QueueDirection queue_direction, Floor floor);
+void queue_state_destroy(QueueState* queue_state);
+void queue_destroy(Queue* queue);
+void queue_clear(Queue* queue);
+bool queue_empty(Queue* queue);
+QueueState* queue_pop(Queue* queue);
+void queue_add(Queue* queue, QueueState* queue_state);
 
 
 
