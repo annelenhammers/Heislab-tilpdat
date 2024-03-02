@@ -19,6 +19,18 @@ void setMotor(Elevator_cab* elevator_cab)
     }
 }
 
+void stopMotor() {
+    elevio_motorDirection(DIRN_STOP);
+}
+
+void MotorUp() {
+    elevio_motorDirection(DIRN_UP);
+}
+
+void MotorDown() {
+    elevio_motorDirection(DIRN_DOWN);
+}
+
 void setState(Elevator_cab* elevator_cab, bool state) 
 {
     elevator_cab -> state = state;

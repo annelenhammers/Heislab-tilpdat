@@ -1,22 +1,16 @@
 #pragma once
 
 #include "driver/elevator_cab.h"
-#include "panels.h"
-// #include "queue.h"
 #include "door.h"
 
 struct AllButtons{
-    bool button[N_BUTTONS];
+    bool button[N_BUTTONS]; //Array of 0: hall up, 1: hall down, 2: all cab buttons
 };
 
 typedef struct {
     Elevator_cab* elevator_cab;
-    // Queue* queue;
-    // QueueState* queue_state;
-    // Elevator_panel* elevator_panel;
-    // Floor_Panel* floor_panel;
     Door* door;
-    struct AllButtons buttons[N_FLOORS];
+    struct AllButtons buttons[N_FLOORS]; 
 
 }StateMachine;
 

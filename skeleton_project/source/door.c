@@ -20,12 +20,13 @@ void setObstructionState(Door* door, int obstruction) {
 }
 
 void _openDoor(Door* door) {
+    
     if(door -> doorstate == CLOSED) {
         elevio_doorOpenLamp(1);
         setDoorState(door, OPEN);
-    }
-    
+    }       
 }
+
 void close_door(Door* door) {
     if(door -> doorstate == OPEN) {
         elevio_doorOpenLamp(0);
@@ -33,12 +34,15 @@ void close_door(Door* door) {
     }
 }
 
-void timer() {
+void timer_3_sec() {
     clock_t start;
     double time;
     while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 3.0) {}
-    elevio_doorOpenLamp(0);
-
+}
+void timer_5_sec() {
+    clock_t start;
+    double time;
+    while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= 5.0) {}
 }
 /*clock_t start;
 double time;

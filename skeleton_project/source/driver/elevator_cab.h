@@ -18,12 +18,15 @@ typedef struct
 {
     Floor floor;
     MotorDirection direction;
-    bool state;                 //state = true; active state = false; inactive
+    bool state;                 //state = true; active, state = false; inactive
 
 } Elevator_cab;
 
-
 void setMotor(Elevator_cab* elevator_cab);
+void stopMotor();
+void MotorUp();
+void MotorDown();
+
 void setState(Elevator_cab* elevator_cab, bool state);
 bool getState(Elevator_cab* elevator_cab);
 void setDirection(Elevator_cab* elevator_cab, MotorDirection direction);
