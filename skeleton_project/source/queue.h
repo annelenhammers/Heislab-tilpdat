@@ -1,7 +1,7 @@
 #pragma once
-#include "../driver/elevator_cab.h"
+#include "driver/elevator_cab.h"
 #include "panels.h"
-#include "elevio.h"
+#include "driver/elevio.h"
 
 
 typedef enum {
@@ -17,9 +17,9 @@ typedef struct {
     Floor floor;
 
     ButtonState button_state;
-    QueueState* new_order;             
-    QueueState* prev;
-    QueueState* next;              
+    void* new_order;             
+    void* prev;
+    void* next;              
 
 
 }QueueState;
@@ -33,13 +33,13 @@ typedef struct {
     
 }Queue;
 
-QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor);
-void queue_state_destroy(QueueState* queuestate);
+QueueState* queue_state_constructor(QueueDirection queue_direction, Floor floor);
+void queue_state_destroy(QueueState* queue_state);
 void queue_destroy(Queue* queue);
 void queue_clear(Queue* queue);
 bool queue_empty(Queue* queue);
 QueueState* queue_pop(Queue* queue);
-void AddToQueue(Queue* queue, QueueState* queuestate);
+void AddToQueue(Queue* queue, QueueState* queue_state);
 void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev);
 
 
