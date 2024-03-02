@@ -2,12 +2,12 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-QueueState* queue_state_constructor(QueueDirection queuedirection, Floor floor){
-    QueueState* questate = (QueueState*)malloc(sizeof(QueueState));
-    questate -> floor = floor;
-    questate -> queue_direction = queuedirection;
-    questate -> prev = NULL;
-    return questate;
+QueueState* queue_state_constructor(QueueDirection queue_direction, Floor floor){
+    QueueState* queue_state = (QueueState*)malloc(sizeof(QueueState));
+    queue_state -> floor = floor;
+    queue_state -> queue_direction = queue_direction;
+    queue_state -> prev = NULL;
+    return queue_state;
 }
 
 
@@ -48,15 +48,15 @@ QueueState* queue_pop(Queue* queue) {
     }
 }
 
-void AddToQueue(Queue* queue, QueueState* queuestate) {
-    queuestate -> prev = NULL;
+void AddToQueue(Queue* queue, QueueState* queue_state) {
+    queue_state -> prev = NULL;
     if(queue -> size == 0) {
-        queue -> tail = queuestate;
-        queue -> head = queuestate;
+        queue -> tail = queue_state;
+        queue -> head = queue_state;
     }
     else {
-        queue -> tail -> prev = queuestate;
-        queue -> tail = queuestate;
+        queue -> tail -> prev = queue_state;
+        queue -> tail = queue_state;
     }
     queue -> size++;
 }
@@ -64,10 +64,10 @@ void AddToQueue(Queue* queue, QueueState* queuestate) {
 void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
     
     if(elevio_floorIndicator > 0) {
-        queuestateconstructor(DOWN, FIRST_FLOOR);
+        queue_state_constructor(DOWN, FIRST_FLOOR);
     }
     else {
-        queuestateconstructor(IDLE, FIRST_FLOOR);
+        queue_state_constructor(IDLE, FIRST_FLOOR);
     }
     
 }
@@ -100,22 +100,24 @@ void update_queue_init(){
     update_queue[3][BUTTON_CAB] = update_lamp_four;
 }
 
-int queue_fix_orders(Queue** head, QueueState* new_order) {
-    if (new_order == NULL) {
-        return 1;
-    }
-    new_order -> next = *head;
-    if (*head != NULL){
-        (*head) -> previous = new_order;
-    }
 
-    *head = new_order;
-    new_order -> previous = NULL;
+//prev and size from queue struct 
+// int queue_fix_orders(Queue** head, QueueState* new_order) {
+//     if (new_order == NULL) {
+//         return 1;
+//     }
+//     new_order -> next = *head;
+//     if (*head != NULL){
+//         (*head) -> prev = new_order;
+//     }
 
-    queue_size++;
+//     *head = new_order;
+//     new_order -> prev = NULL;
 
-    update_queue[new_order -> floor][new_order -> queue_direction](new_order -> button_state);
+//     size++;
 
-    return 0;
-}
+//     update_queue[new_order -> floor][new_order -> queue_direction](new_order -> button_state);
+
+//     return 0;
+// }
 

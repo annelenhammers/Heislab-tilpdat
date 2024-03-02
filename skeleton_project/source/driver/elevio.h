@@ -27,7 +27,7 @@ void elevio_floorIndicator(int floor); // oppdaterer etasjeindikator
 void elevio_doorOpenLamp(int value); // value er 0 eller 1, kontrollerer lampelys (på/av)
 void elevio_stopLamp(int value); // value er 0 eller 1, kontrollerer stopplys (på/av)
 
-int elevio_callButton(int floor, ButtonType button); //setter at knapp er trykket
+int elevio_callButton(int floor, ButtonType button); //sjekker at knapp er trykket
 int elevio_floorSensor(void); //gir ut etasjestate
 int elevio_stopButton(void); //gir stoppbutton-state
 int elevio_obstruction(void); //gir ut obsruksjonsstate
