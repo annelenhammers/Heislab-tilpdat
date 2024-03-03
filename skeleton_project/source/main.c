@@ -36,16 +36,16 @@ int main(){
         if(state_machine->elevator_cab->direction != 0 && state_machine->elevator_cab->floor != -1){
             printf("Checking if should stop\n");
             if(should_stop_this_floor(state_machine)){
+                stopMotor();
+                _openDoor(door);
                 printf("Stopping at floor %d\n", state_machine->elevator_cab->floor);
                 for (int i = 0; i < N_BUTTONS; i++)
                 {
                     state_machine->buttons[state_machine->elevator_cab->floor].button[i] = false;
                     elevio_buttonLamp(state_machine->elevator_cab->floor, i, 0);
-                }
-                
+                }     
             }
         }
-
 
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
