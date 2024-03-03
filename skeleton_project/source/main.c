@@ -14,7 +14,8 @@ int main(){
     Door* door = door_constructor(0,0);
     StateMachine* state_machine = state_machine_constructor(elevator_cab, door);
     initialize_elevator_cab(elevator_cab);
-    
+    //interrupt void ISR(void);
+
     printf("=== Example Program ===\n");
     printf("Press the stop button on the elevator panel to exit\n");
 
