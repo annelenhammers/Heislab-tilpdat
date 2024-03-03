@@ -37,6 +37,7 @@ Floor getFloor(Elevator_cab* elevator_cab);
 void delete_elevator_cab(Elevator_cab* elevator_cab);
 void initialize_elevator_cab(Elevator_cab* elevator_cab);
 Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirection, bool state);
+void stopButtonPressed(Elevator_cab* elevator_cab, Door* door);
 
 
 

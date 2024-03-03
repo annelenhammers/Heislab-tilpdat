@@ -1,4 +1,5 @@
 #include "elevator_cab.h"
+#include "door.h"
 
 
 void setMotor(Elevator_cab* elevator_cab) 
@@ -80,6 +81,8 @@ void initialize_elevator_cab(Elevator_cab* elevator_cab)
         if(read_current_floor(elevator_cab) == FIRST_FLOOR) 
         {
             setDirection(elevator_cab, DIRN_STOP);
+            _setFloor(elevator_cab, FIRST_FLOOR);
+            stopMotor();
             break;
         }
     }
@@ -88,6 +91,7 @@ void initialize_elevator_cab(Elevator_cab* elevator_cab)
     {
         setDirection(elevator_cab, DIRN_STOP);
         _setFloor(elevator_cab, FIRST_FLOOR);
+        stopMotor();
     }
     //legg til stoppknapp-funksjonalitet 
 }
@@ -110,6 +114,17 @@ Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirectio
 void delete_elevator_cab(Elevator_cab* elevator_cab) 
 {
     free(elevator_cab);    
+}
+
+void stopButtonPressed(Elevator_cab* elevator_cab, Door* door) {
+    while(elevio_stopButton == 1) {
+        stopMotor();
+        if(read_current_floor() == elevator_cab -> floor) {
+            _openDoor(door);
+        }
+    }
+    timer(5);
+    close_door(door);
 }
 
 
