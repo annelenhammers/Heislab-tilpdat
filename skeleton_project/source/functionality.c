@@ -21,23 +21,23 @@ void initialize_state_machine(StateMachine* statemachine) {
 bool should_stop_this_floor(StateMachine* statemachine){
     if (statemachine->elevator_cab->direction == 0) //stationary -> undefined behaviour
     {   
-        printf("Stopping bc stopped");
+        printf("Stopping bc stopped\n");
         return true;
     }
 
     if ((statemachine -> elevator_cab -> floor == N_FLOORS-1 && statemachine -> elevator_cab -> direction == DIRN_UP)|| //going up at top floor
         (statemachine -> elevator_cab -> floor == 0 && statemachine -> elevator_cab -> direction == DIRN_DOWN)) //going down at bottom floor
     {
-        printf("Stopping bc cant fly/dig");
+        printf("Stopping bc cant fly/dig\n");
         return true; //Please don't let the elevator escape the building
     }
     if (statemachine->buttons[statemachine->elevator_cab->floor].button[(statemachine->elevator_cab->direction-1)/-2]){ //magic math 🎩🪄  checks if someone wants to join the elevator in the current direction at the current floor
-        printf("Stopping bc magic");
+        printf("Stopping bc magic\n");
         return true;
     }
     if (statemachine->buttons[statemachine->elevator_cab->floor].button[2]){ //someone wants to get off
         
-        printf("Stopping bc ppl escape");
+        printf("Stopping bc ppl escape\n");
         return true;
     }
     for (int i = statemachine->elevator_cab->floor + statemachine->elevator_cab->direction; i >= 0 && i < N_FLOORS; i += statemachine->elevator_cab->direction)
@@ -49,6 +49,7 @@ bool should_stop_this_floor(StateMachine* statemachine){
     }
     if(statemachine->buttons[statemachine->elevator_cab->floor].button[(statemachine->elevator_cab->direction+1)/2]) //Going opposite direction
     {
+        printf("Stopping opposite\n");
         return true;
     }
     return false;

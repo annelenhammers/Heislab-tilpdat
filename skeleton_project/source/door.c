@@ -4,6 +4,7 @@ Door* door_constructor(DoorState doorstate, int obstruction) {
     Door* door = (Door*)malloc(sizeof(Door));
     door -> doorstate = doorstate;
     door -> obstruction = obstruction;
+    return door;
 }
 
 DoorState getDoorState(Door* door) {
@@ -18,6 +19,7 @@ void setDoorState(Door* door, DoorState doorstate) {
 void setObstructionState(Door* door, int obstruction) {
     door -> obstruction = obstruction;
 }
+
 
 void _openDoor(Door* door) {
 
@@ -34,7 +36,7 @@ void close_door(Door* door) {
 }
 
 void timer(int sec) {
-    clock_t start;
+    clock_t start = clock();
     double time;
     while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= sec) {}
 }

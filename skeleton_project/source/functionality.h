@@ -11,7 +11,8 @@ typedef struct {
     Elevator_cab* elevator_cab;
     Door* door;
     struct AllButtons buttons[N_FLOORS]; 
-
+    bool obstructed;
+    bool stationary;
 }StateMachine;
 
 StateMachine* state_machine_constructor(Elevator_cab* elevator_cab, Door* door);

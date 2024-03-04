@@ -1,7 +1,7 @@
 #pragma once
 
 #include "time.h"
-#include "panels.h"
+// #include "panels.h"w
 
 typedef enum {
     OPEN = 1,
