@@ -72,7 +72,7 @@ void initialize_queuestate(QueueDirection dir, Floor floor, QueueState* prev) {
     
 }
 
-QueueState* queue_latest_order(Queue* queue) {
+*QueueState* queue_latest_order(Queue* queue) {
     return queue -> tail;
 }
 
