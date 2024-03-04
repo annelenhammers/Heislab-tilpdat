@@ -4,6 +4,7 @@
 #include "con_load.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include "../door.h"
 
 typedef enum 
 {
