@@ -37,6 +37,7 @@ int main() {
         if (state_machine.elevator_cab.floor != -1)
         {
             elevio_floorIndicator(state_machine.elevator_cab.floor);
+            state_machine.prev_stop_floor = state_machine.elevator_cab.floor;
         }
         
         if(state_machine.elevator_cab.floor != -1) {
@@ -85,7 +86,7 @@ int main() {
             if (state_machine.stopButton){
                 printf("Returning from alarm\n");
                 state_machine.stopButton = false;
-                state_machine.stationary = false;
+                // state_machine.stationary = false;
             }
             for(int f = 0; f < N_FLOORS; f++){
                 // printf("Polling buttons\n");
@@ -100,7 +101,35 @@ int main() {
         }
 
         if (state_machine.elevator_cab.floor == -1){
-            goto dir_check;
+            if (state_machine.stationary){ //Alarm restart only
+                printf("alarm restart\n");
+                for (int i = state_machine.prev_stop_floor + state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i += state_machine.elevator_cab.direction){
+                    for (int j = 0; j < N_BUTTONS; j++){
+                        if (state_machine.buttons[i].button[j])
+                        {
+                            printf("Stuck on floors1\n");   
+                            state_machine.stationary = false;
+                            goto dir_check;
+                        }
+                    }
+                }
+                for (int i = state_machine.prev_stop_floor; i >= 0 && i < N_FLOORS; i -= state_machine.elevator_cab.direction){
+                    for (int j = 0; j < N_BUTTONS; j++){
+                        if (state_machine.buttons[i].button[j])
+                        {
+                            printf("Stuck on floors2\n");
+                            printf("on%d\n", state_machine.elevator_cab.floor);
+                            printf("cab_dir %d\n", state_machine.elevator_cab.direction);
+                            state_machine.stationary = false;
+                            state_machine.elevator_cab.direction = -state_machine.elevator_cab.direction;
+                            printf("cab_dir after %d\n", state_machine.elevator_cab.direction);
+                            goto dir_check;
+                        }
+                    }
+                }
+            } else{
+                goto dir_check;
+            }
         }
         for (int i = state_machine.elevator_cab.floor + state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i += state_machine.elevator_cab.direction){
             for (int j = 0; j < N_BUTTONS; j++){

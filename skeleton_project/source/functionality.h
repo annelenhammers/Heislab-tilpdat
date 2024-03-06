@@ -19,6 +19,7 @@ typedef struct {
     bool obstructed;
     bool stationary;
     bool stopButton;
+    int prev_stop_floor;
 
 } StateMachine;
 
