@@ -57,18 +57,6 @@ void initialize_state_machine(StateMachine* statemachine) {
 }*/
 
 bool should_stop_this_floor(StateMachine* statemachine){
-    if (statemachine->elevator_cab.direction == 0) //stationary -> undefined behaviour
-    {   
-        printf("Stopping bc stopped\n");
-        return true;
-    }
-
-    if ((statemachine -> elevator_cab.floor == N_FLOORS-1 && statemachine -> elevator_cab.direction == DIRN_UP)|| //going up at top floor
-        (statemachine -> elevator_cab.floor == 0 && statemachine -> elevator_cab.direction == DIRN_DOWN)) //going down at bottom floor
-    {
-        printf("Stopping bc cant fly/dig\n");
-        return true; //Please don't let the elevator escape the building
-    }
     if (statemachine->buttons[statemachine->elevator_cab.floor].button[(statemachine->elevator_cab.direction-1)/-2]){ //magic math 🎩🪄  checks if someone wants to join the elevator in the current direction at the current floor
         printf("Stopping bc magic\n");
         return true;
@@ -91,6 +79,50 @@ bool should_stop_this_floor(StateMachine* statemachine){
         return true;
     }
     return false;
+}
+
+
+void timer(int sec, StateMachine *state_machine) {
+    time_t start = time(NULL);
+    time_t elapsed_time;
+    
+    printf("start time: %d\n", start);
+
+    while (1) {
+        elapsed_time = time(NULL) - start;
+        // printf("elapsed: %d\n", elapsed_time);
+
+        if (elapsed_time >= sec) {
+            break;
+        }
+
+        // Your other code goes here
+        if (elevio_stopButton()){
+            // printf("Stopped\n");
+            for(int f = 0; f < N_FLOORS; f++){
+                printf("stopping buttons\n");
+                for(int b = 0; b < N_BUTTONS; b++) {
+                    state_machine->buttons[f].button[b] = 0;
+                    elevio_buttonLamp(f, b, 0);
+                }
+            }
+            start = time(NULL);
+            continue;
+        }
+        // printf("Not stopped\n");
+        if (elevio_obstruction()){
+            start = time(NULL);
+        }
+        for(int f = 0; f < N_FLOORS; f++){
+            for(int b = 0; b < N_BUTTONS; b++) {
+                int btnPressed = elevio_callButton(f, b);
+                if (btnPressed) {
+                    state_machine->buttons[f].button[b] = btnPressed;
+                    elevio_buttonLamp(f, b, btnPressed);
+                }
+            }
+        }
+    }
 }
 
 //void destroy_state_machine(StateMachine* statemachine) {

@@ -4,7 +4,7 @@
 #include "con_load.h"
 #include <stdbool.h>
 #include <stdio.h>
-#include "../door.h"
+// #include "../door.h"
 
 
 
@@ -49,7 +49,7 @@ Floor getFloor(Elevator_cab* elevator_cab);
 void initialize_elevator_cab(Elevator_cab* elevator_cab);
 Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirection, bool state);
 
-void stopButtonPressed(Elevator_cab* elevator_cab, Door* door);
+// void stopButtonPressed(Elevator_cab* elevator_cab, Door* door);
 
 //void delete_elevator_cab(Elevator_cab* elevator_cab);
 

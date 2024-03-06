@@ -2,7 +2,7 @@
 
 //globale variabler
 Elevator_cab elevator_cab;
-Door door;
+// Door door;
 
 
 void setMotor(Elevator_cab* elevator_cab) {
@@ -97,17 +97,17 @@ Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirectio
     return &elevator_cab;
 }
 
-void stopButtonPressed(Elevator_cab* elevator_cab, Door* door) {
-    while(elevio_stopButton == 1) {
-        stopMotor();
+// void stopButtonPressed(Elevator_cab* elevator_cab, Door* door) {
+//     while(elevio_stopButton == 1) {
+//         stopMotor();
         
-        if(read_current_floor() == elevator_cab -> floor) {
-            _openDoor(door);
-        }
-    }
-    timer(5);
-    close_door(door);
-}
+//         if(read_current_floor() == elevator_cab -> floor) {
+//             _openDoor(door);
+//         }
+//     }
+//     timer(5);
+//     close_door(door);
+// }
 
 
 //no need to free memory when we use pass-by-reference

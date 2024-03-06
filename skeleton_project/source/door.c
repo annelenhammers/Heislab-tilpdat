@@ -36,17 +36,11 @@ void close_door(Door* door) {
     }
 }
 
-void timer(int sec) {
-    clock_t start = clock();
-    double time;
-    while(time = (double)(clock() - start) / CLOCKS_PER_SEC <= sec) {}
-}
-
 void obstruction(Door* door) {
     while(elevio_obstruction() == 1 && door -> doorstate == OPEN) {
         _openDoor(door);
     }
-    timer(3);
+    // timer(3);
     close_door(door);
 }
 

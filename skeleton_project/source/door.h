@@ -1,6 +1,5 @@
 #pragma once
 
-#include "time.h"
 // #include "panels.h"
 
 
@@ -33,7 +32,6 @@ DoorState getDoorState(Door* door);
 void _openDoor(Door* door);
 void close_door(Door* door);
 void obstruction(Door* door); //det er en funksjon og en int?
-void timer(int sec);
 
 void initialize_door(Door* door, int obstruction);
 Door door_constructor(DoorState Door, int obstruction);
