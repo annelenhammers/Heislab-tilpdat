@@ -1,31 +1,32 @@
 #include "door.h"
 
-Door* door_constructor(DoorState doorstate, int obstruction) {
-    Door* door = (Door*)malloc(sizeof(Door));
-    door -> doorstate = doorstate;
-    door -> obstruction = obstruction;
+
+Door door_constructor(DoorState doorstate, int obstruction) {
+    Door door;
+    door.doorstate = doorstate;
+    door.obstruction = obstruction;
     return door;
 }
 
 DoorState getDoorState(Door* door) {
     return door -> doorstate;
 }
-int getObstrctionState(Door* door) {
+
+int getObstructionState(Door* door) {
     return door -> obstruction;
 }
+
 void setDoorState(Door* door, DoorState doorstate) {
     door -> doorstate = doorstate;   
 }
+
 void setObstructionState(Door* door, int obstruction) {
     door -> obstruction = obstruction;
 }
 
-
 void _openDoor(Door* door) {
-
     elevio_doorOpenLamp(1);
-    setDoorState(door, OPEN);
-           
+    setDoorState(door, OPEN);        
 }
 
 void close_door(Door* door) {
@@ -51,13 +52,13 @@ void obstruction(Door* door) {
 
 //Må fikse obstruction etter litt strukturendring hihihihihi
 
-void destroyDoor(Door* door) {
-    free(door);
-}
-
 void initialize_door(Door* door, int obstruction) {
-    door_constructor(CLOSED, 0);
+    *door = door_constructor(CLOSED, 0);
     close_door(door);
 }
 
 
+//no need for memory deallocation for objects
+//void destroyDoor(Door* door) {
+//    free(door);
+//}
