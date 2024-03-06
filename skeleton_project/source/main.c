@@ -21,7 +21,6 @@ int main() {
 
     StateMachine state_machine = state_machine_constructor(*elevator_cab, door);
     printf("sm %i\n", state_machine.elevator_cab.floor);
-    
     initialize_elevator_cab(elevator_cab);
     //interrupt void ISR(void); kaaa faen er detta for no
 
@@ -64,6 +63,9 @@ int main() {
 
         //polling the buttons and updating the state machine
         if (elevio_stopButton()){
+            if(!state_machine.stopButton){
+                elevio_stopLamp(1);
+            }
             state_machine.stopButton = true;
             state_machine.stationary = true;
             elevio_motorDirection(DIRN_STOP);
@@ -84,6 +86,7 @@ int main() {
             }
         } else{
             if (state_machine.stopButton){
+                elevio_stopLamp(0);
                 printf("Returning from alarm\n");
                 state_machine.stopButton = false;
                 // state_machine.stationary = false;
@@ -166,12 +169,6 @@ int main() {
         } else {
             elevio_motorDirection(DIRN_STOP);
             // printf("Stopping\n");
-        }
-
-        if(elevio_obstruction()){
-            elevio_stopLamp(1);
-        } else {
-            elevio_stopLamp(0);
         }
         
         nanosleep(&(struct timespec){0, 20*1000*100}, NULL);

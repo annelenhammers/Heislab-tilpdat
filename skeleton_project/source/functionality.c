@@ -98,6 +98,7 @@ void timer(int sec, StateMachine *state_machine) {
 
         // Your other code goes here
         if (elevio_stopButton()){
+            elevio_stopLamp(1);
             // printf("Stopped\n");
             for(int f = 0; f < N_FLOORS; f++){
                 printf("stopping buttons\n");
