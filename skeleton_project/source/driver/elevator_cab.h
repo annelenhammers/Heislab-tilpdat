@@ -4,30 +4,21 @@
 #include "con_load.h"
 #include <stdbool.h>
 #include <stdio.h>
-// #include "../door.h"
 
 
-
-typedef enum {
-    
+typedef enum { 
     FIRST_FLOOR =  1,
     SECOND_FLOOR = 2,
     THIRD_FLOOR = 3,
     FOURTH_FLOOR = 4
-
 } Floor;
 
 
-
 typedef struct {
-    
     Floor floor;
     MotorDirection direction;
     bool state;                 //state = true; active, state = false; inactive
-
 } Elevator_cab;
-
-
 
 
 
@@ -48,9 +39,3 @@ Floor getFloor(Elevator_cab* elevator_cab);
 
 void initialize_elevator_cab(Elevator_cab* elevator_cab);
 Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirection, bool state);
-
-// void stopButtonPressed(Elevator_cab* elevator_cab, Door* door);
-
-//void delete_elevator_cab(Elevator_cab* elevator_cab);
-
-

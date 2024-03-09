@@ -2,6 +2,9 @@
     "C_Cpp.errorSquiggles": "enabled",
     "files.associations": {
         "panels.h": "c",
-        "elevator_cab.h": "c"
+        "elevator_cab.h": "c",
+        "elevio.h": "c",
+        "door.h": "c",
+        "time.h": "c"
     }
 }

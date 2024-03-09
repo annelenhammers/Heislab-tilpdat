@@ -37,22 +37,15 @@ void close_door(Door* door) {
 }
 
 void obstruction(Door* door) {
+
     while(elevio_obstruction() == 1 && door -> doorstate == OPEN) {
         _openDoor(door);
     }
-    // timer(3);
+
     close_door(door);
 }
-
-//Må fikse obstruction etter litt strukturendring hihihihihi
 
 void initialize_door(Door* door, int obstruction) {
     *door = door_constructor(CLOSED, 0);
     close_door(door);
 }
-
-
-//no need for memory deallocation for objects
-//void destroyDoor(Door* door) {
-//    free(door);
-//}

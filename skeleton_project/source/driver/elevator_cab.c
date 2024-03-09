@@ -1,11 +1,10 @@
 #include "elevator_cab.h"
 
-//globale variabler
-Elevator_cab elevator_cab;
-// Door door;
 
+Elevator_cab elevator_cab;
 
 void setMotor(Elevator_cab* elevator_cab) {
+
     if(elevator_cab -> state == false || elevator_cab -> direction == DIRN_STOP) {
         elevio_motorDirection(DIRN_STOP);
     }
@@ -63,29 +62,24 @@ Floor getFloor(Elevator_cab* elevator_cab) {
 }
 
 void initialize_elevator_cab(Elevator_cab* elevator_cab) {
+
     while(read_current_floor(elevator_cab) != FIRST_FLOOR) {
-        
         _setFloor(elevator_cab, read_current_floor(elevator_cab));
         setDirection(elevator_cab, DIRN_DOWN);
 
         if(read_current_floor(elevator_cab) == FIRST_FLOOR) {
-            
             setDirection(elevator_cab, DIRN_STOP);
             _setFloor(elevator_cab, FIRST_FLOOR);
-
             stopMotor();
             break;
         }
     }
 
     if(read_current_floor(elevator_cab) == FIRST_FLOOR) {
-
         setDirection(elevator_cab, DIRN_STOP);
         _setFloor(elevator_cab, FIRST_FLOOR);
-
         stopMotor();
     }
-    //legg til stoppknapp-funksjonalitet 
 }
 
 Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirection, bool state) { 
@@ -97,24 +91,7 @@ Elevator_cab* elevator_cab_constructor(Floor floor, MotorDirection motordirectio
     return &elevator_cab;
 }
 
-// void stopButtonPressed(Elevator_cab* elevator_cab, Door* door) {
-//     while(elevio_stopButton == 1) {
-//         stopMotor();
-        
-//         if(read_current_floor() == elevator_cab -> floor) {
-//             _openDoor(door);
-//         }
-//     }
-//     timer(5);
-//     close_door(door);
-// }
 
-
-//no need to free memory when we use pass-by-reference
-//void delete_elevator_cab(Elevator_cab* elevator_cab) 
-//{
-//   free(elevator_cab);    
-//}
 
 
 
