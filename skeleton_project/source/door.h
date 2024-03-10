@@ -25,6 +25,3 @@ void obstruction(Door* door);
 
 void initialize_door(Door* door, int obstruction);
 Door door_constructor(DoorState Door, int obstruction);
-
-
-

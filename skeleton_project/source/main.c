@@ -4,7 +4,7 @@
 #include <time.h>
 #include "driver/elevio.h"
 #include "driver/elevator_cab.h"
-#include "functionality.h"
+#include "elevator_ops.h"
 
 
 
@@ -36,25 +36,12 @@ int main() {
             elevio_floorIndicator(state_machine.elevator_cab.floor);
         }
         
-        if(state_machine.elevator_cab.floor != -1) 
+        if (state_machine.elevator_cab.floor != -1) 
         {
             // printf("Checking if should stop\n");
-
             if(should_stop_this_floor(&state_machine)) 
             {
-                
-                stopMotor();
-                _openDoor(&door);
-                timer(3, &state_machine);
-                close_door(&door);
-
-                printf("Stopping at floor %d\n", state_machine.elevator_cab.floor);
-                
-                for (int i = 0; i < N_BUTTONS; i++) 
-                {
-                    state_machine.buttons[state_machine.elevator_cab.floor].button[i] = false;
-                    elevio_buttonLamp(state_machine.elevator_cab.floor, i, 0);
-                }     
+                execute_stop_at_floor(&state_machine, &door);   
             }
         }
 
@@ -93,69 +80,11 @@ int main() {
                 state_machine.stationary = false;
             }
 
-            for(int f = 0; f < N_FLOORS; f++)
-            {
-                // printf("Polling buttons\n");
-                for(int b = 0; b < N_BUTTONS; b++) 
-                {
-                    int btnPressed = elevio_callButton(f, b);
-                    if (btnPressed) 
-                    {
-                        state_machine.buttons[f].button[b] = btnPressed;
-                        elevio_buttonLamp(f, b, btnPressed);
-                    }
-                }
-            }
+            polling_buttons_and_update_statemachine(&state_machine);
         }
 
-        if (state_machine.elevator_cab.floor == -1)
-        {
-            goto dir_check;
-        }
-
-        for (int i = state_machine.elevator_cab.floor + state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i += state_machine.elevator_cab.direction)
-        {
-            for (int j = 0; j < N_BUTTONS; j++)
-            {
-                if (state_machine.buttons[i].button[j])
-                {
-                    printf("Stuck on floors1\n");   
-                    state_machine.stationary = false;
-                    goto dir_check;
-                }
-            }
-        }
-        for (int i = state_machine.elevator_cab.floor - state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i -= state_machine.elevator_cab.direction)
-        {
-            for (int j = 0; j < N_BUTTONS; j++)
-            {
-                if (state_machine.buttons[i].button[j])
-                {
-                    printf("Stuck on floors2\n");
-                    printf("on%d\n", state_machine.elevator_cab.floor);
-                    printf("cab_dir %d\n", state_machine.elevator_cab.direction);
-                    state_machine.stationary = false;
-                    state_machine.elevator_cab.direction = -state_machine.elevator_cab.direction;
-                    printf("cab_dir after %d\n", state_machine.elevator_cab.direction);
-                    goto dir_check;
-                }
-            }
-        }
-
-        state_machine.stationary = true;
-
-        dir_check:
-
-        if (!state_machine.stationary)
-        {
-            elevio_motorDirection(state_machine.elevator_cab.direction);
-            printf("Setting dir %d\n", state_machine.elevator_cab.direction);
-
-        } else {
-            elevio_motorDirection(DIRN_STOP);
-            // printf("Stopping\n");
-        }
-
+        check_direction(&state_machine);
+        
         if(elevio_obstruction())
         {
             elevio_stopLamp(1);
