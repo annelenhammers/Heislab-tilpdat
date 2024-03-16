@@ -1,0 +1,36 @@
+\hypertarget{elevator__cab_8h_source}{}\doxysection{elevator\+\_\+cab.\+h}
+\label{elevator__cab_8h_source}\index{skeleton\_project/source/driver/elevator\_cab.h@{skeleton\_project/source/driver/elevator\_cab.h}}
+\mbox{\hyperlink{elevator__cab_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00006}00006 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}elevio.h"{}}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}con\_load.h"{}}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00018}\mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{00018}} \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00020}00020     FIRST\_FLOOR =  0,}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00021}00021     SECOND\_FLOOR = 1,}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00022}00022     THIRD\_FLOOR = 2,}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00023}00023     FOURTH\_FLOOR = 3}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00025}00025 \} \mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}};}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00032}\mbox{\hyperlink{struct_elevator__cab}{00032}} \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00034}00034     \mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}} floor;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00035}00035     MotorDirection direction;               }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00037}00037 \} \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}};}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00044}00044 \textcolor{keywordtype}{int} \mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}();}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00052}00052 \textcolor{keywordtype}{void} \mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{initialize\_elevator\_cab}}(\mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* elevator\_cab);}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00063}00063 \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* \mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{elevator\_cab\_constructor}}(\mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}} floor, MotorDirection direction);}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8h_source_l00065}00065 }
+
+\end{DoxyCode}

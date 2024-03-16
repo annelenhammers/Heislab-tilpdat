@@ -1,0 +1,111 @@
+\hypertarget{struct_state_machine}{}\doxysection{State\+Machine Struct Reference}
+\label{struct_state_machine}\index{StateMachine@{StateMachine}}
+
+
+{\ttfamily \mbox{\hyperlink{struct_state_machine}{State\+Machine}}} Struct representing a collection of states  
+
+
+
+
+{\ttfamily \#include $<$functionality.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} \mbox{\hyperlink{struct_state_machine_a6ad7b3fc398170e0ee895e4d9e0a4cb8}{elevator\+\_\+cab}}
+\item 
+\mbox{\hyperlink{struct_door}{Door}} \mbox{\hyperlink{struct_state_machine_a7bc2fc9a8fcead45d42b5e33e68c03b6}{door}}
+\item 
+struct \mbox{\hyperlink{struct_all_buttons}{All\+Buttons}} \mbox{\hyperlink{struct_state_machine_a8bf9d9dfe2a2abaf712f1d7c99e99f5b}{buttons}} \mbox{[}N\+\_\+\+FLOORS\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_state_machine_a1f162ce4cb96288f70dec2a25150e005}{stationary}}
+\item 
+bool \mbox{\hyperlink{struct_state_machine_add1dfe135a17d58575f3150467a22fb5}{stop\+Button}}
+\item 
+int \mbox{\hyperlink{struct_state_machine_a95ecab3f36b2cd3878839e6249ee47f8}{prev\+\_\+stop\+\_\+floor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+{\ttfamily \mbox{\hyperlink{struct_state_machine}{State\+Machine}}} Struct representing a collection of states 
+
+
+\begin{DoxyItemize}
+\item {\ttfamily elevator\+\_\+cab} {\ttfamily \mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}}} object
+\item {\ttfamily door} {\ttfamily \mbox{\hyperlink{struct_door}{Door}}} object
+\item {\ttfamily buttons} {\ttfamily Allbuttons} object of size 4 representing the floors, each floor keeps a set of three buttons
+\item {\ttfamily stationary} Boolean variable that is true when the cab is stationary, and false otherwise
+\item {\ttfamily stop\+Button} Boolean variable that is true if the stopbutton is pressed, and false otherwise
+\item {\ttfamily prev\+\_\+stop\+\_\+floor} integer value representing the last floor the elevator stopped at 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00034}{34}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_state_machine_a8bf9d9dfe2a2abaf712f1d7c99e99f5b}\label{struct_state_machine_a8bf9d9dfe2a2abaf712f1d7c99e99f5b}} 
+\index{StateMachine@{StateMachine}!buttons@{buttons}}
+\index{buttons@{buttons}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{buttons}{buttons}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_all_buttons}{All\+Buttons}} State\+Machine\+::buttons\mbox{[}N\+\_\+\+FLOORS\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00038}{38}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+\mbox{\Hypertarget{struct_state_machine_a7bc2fc9a8fcead45d42b5e33e68c03b6}\label{struct_state_machine_a7bc2fc9a8fcead45d42b5e33e68c03b6}} 
+\index{StateMachine@{StateMachine}!door@{door}}
+\index{door@{door}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{door}{door}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_door}{Door}} State\+Machine\+::door}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00037}{37}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+\mbox{\Hypertarget{struct_state_machine_a6ad7b3fc398170e0ee895e4d9e0a4cb8}\label{struct_state_machine_a6ad7b3fc398170e0ee895e4d9e0a4cb8}} 
+\index{StateMachine@{StateMachine}!elevator\_cab@{elevator\_cab}}
+\index{elevator\_cab@{elevator\_cab}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{elevator\_cab}{elevator\_cab}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} State\+Machine\+::elevator\+\_\+cab}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00036}{36}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+\mbox{\Hypertarget{struct_state_machine_a95ecab3f36b2cd3878839e6249ee47f8}\label{struct_state_machine_a95ecab3f36b2cd3878839e6249ee47f8}} 
+\index{StateMachine@{StateMachine}!prev\_stop\_floor@{prev\_stop\_floor}}
+\index{prev\_stop\_floor@{prev\_stop\_floor}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{prev\_stop\_floor}{prev\_stop\_floor}}
+{\footnotesize\ttfamily int State\+Machine\+::prev\+\_\+stop\+\_\+floor}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00041}{41}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+\mbox{\Hypertarget{struct_state_machine_a1f162ce4cb96288f70dec2a25150e005}\label{struct_state_machine_a1f162ce4cb96288f70dec2a25150e005}} 
+\index{StateMachine@{StateMachine}!stationary@{stationary}}
+\index{stationary@{stationary}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{stationary}{stationary}}
+{\footnotesize\ttfamily bool State\+Machine\+::stationary}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00039}{39}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+\mbox{\Hypertarget{struct_state_machine_add1dfe135a17d58575f3150467a22fb5}\label{struct_state_machine_add1dfe135a17d58575f3150467a22fb5}} 
+\index{StateMachine@{StateMachine}!stopButton@{stopButton}}
+\index{stopButton@{stopButton}!StateMachine@{StateMachine}}
+\doxysubsubsection{\texorpdfstring{stopButton}{stopButton}}
+{\footnotesize\ttfamily bool State\+Machine\+::stop\+Button}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8h_source_l00040}{40}} of file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+skeleton\+\_\+project/source/\mbox{\hyperlink{functionality_8h}{functionality.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,121 @@
+\hypertarget{functionality_8h}{}\doxysection{skeleton\+\_\+project/source/functionality.h File Reference}
+\label{functionality_8h}\index{skeleton\_project/source/functionality.h@{skeleton\_project/source/functionality.h}}
+
+
+Functionality keeps the final statemachine object and has does operations when the elevator is supposed to stop.  
+
+
+{\ttfamily \#include \char`\"{}driver/elevator\+\_\+cab.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}door.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_all_buttons}{All\+Buttons}}
+\begin{DoxyCompactList}\small\item\em {\ttfamily ALLButtons} Struct representing a collection of buttons \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_state_machine}{State\+Machine}}
+\begin{DoxyCompactList}\small\item\em {\ttfamily \mbox{\hyperlink{struct_state_machine}{State\+Machine}}} Struct representing a collection of states \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_state_machine}{State\+Machine}} \mbox{\hyperlink{functionality_8h_af2dd361ce8ef2ea3c1046e8e429d342d}{state\+\_\+machine\+\_\+constructor}} (\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} elevator\+\_\+cab, \mbox{\hyperlink{struct_door}{Door}} door)
+\item 
+void \mbox{\hyperlink{functionality_8h_a8c1077e84c6c1d268ec712f4bbe30441}{initialize\+\_\+state\+\_\+machine}} (\mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$statemachine)
+\item 
+bool \mbox{\hyperlink{functionality_8h_a08281bafab5e837d6f0a6924c9e89397}{should\+\_\+stop\+\_\+this\+\_\+floor}} (\mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$statemachine)
+\begin{DoxyCompactList}\small\item\em Determines whether the elevator should stop at the current floor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functionality_8h_adb2a8954815704a90cbd1771195911d4}{timer}} (int seconds, \mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$state\+\_\+machine)
+\begin{DoxyCompactList}\small\item\em Timer can count a given amount of seconds, and handles door-\/obstructions and emergencies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functionality keeps the final statemachine object and has does operations when the elevator is supposed to stop. 
+
+
+
+Definition in file \mbox{\hyperlink{functionality_8h_source}{functionality.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{functionality_8h_a8c1077e84c6c1d268ec712f4bbe30441}\label{functionality_8h_a8c1077e84c6c1d268ec712f4bbe30441}} 
+\index{functionality.h@{functionality.h}!initialize\_state\_machine@{initialize\_state\_machine}}
+\index{initialize\_state\_machine@{initialize\_state\_machine}!functionality.h@{functionality.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_state\_machine()}{initialize\_state\_machine()}}
+{\footnotesize\ttfamily void initialize\+\_\+state\+\_\+machine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$}]{statemachine }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8c_source_l00018}{18}} of file \mbox{\hyperlink{functionality_8c_source}{functionality.\+c}}.
+
+\mbox{\Hypertarget{functionality_8h_a08281bafab5e837d6f0a6924c9e89397}\label{functionality_8h_a08281bafab5e837d6f0a6924c9e89397}} 
+\index{functionality.h@{functionality.h}!should\_stop\_this\_floor@{should\_stop\_this\_floor}}
+\index{should\_stop\_this\_floor@{should\_stop\_this\_floor}!functionality.h@{functionality.h}}
+\doxysubsubsection{\texorpdfstring{should\_stop\_this\_floor()}{should\_stop\_this\_floor()}}
+{\footnotesize\ttfamily bool should\+\_\+stop\+\_\+this\+\_\+floor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$}]{statemachine }\end{DoxyParamCaption})}
+
+
+
+Determines whether the elevator should stop at the current floor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em statemachine} & is a pointer to the statemachine object, and holds elevator\+\_\+cab object with the cab\textquotesingle{}s last direction, current floor, and also keeps the button-\/array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the elevator should stop at the current floor, and false otherwise
+\end{DoxyReturn}
+The four if-\/statements are executed sequentially\+:
+\begin{DoxyItemize}
+\item if someone wants to join the elevator in the current direction at the current floor, the elvator stops
+\item if someone wants to get off at the current floor, the elevator stops
+\item if none of the above if-\/statements have hits, the elevator scans the button array, looking for orders on the floors above if direction is UP, and below if direction is DOWN, to check if it should go past the current floor
+\item if there are no orders above/below, the elevator may stop to pick up passangers going the opposite direction 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{functionality_8c_source_l00022}{22}} of file \mbox{\hyperlink{functionality_8c_source}{functionality.\+c}}.
+
+\mbox{\Hypertarget{functionality_8h_af2dd361ce8ef2ea3c1046e8e429d342d}\label{functionality_8h_af2dd361ce8ef2ea3c1046e8e429d342d}} 
+\index{functionality.h@{functionality.h}!state\_machine\_constructor@{state\_machine\_constructor}}
+\index{state\_machine\_constructor@{state\_machine\_constructor}!functionality.h@{functionality.h}}
+\doxysubsubsection{\texorpdfstring{state\_machine\_constructor()}{state\_machine\_constructor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_state_machine}{State\+Machine}} state\+\_\+machine\+\_\+constructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}}}]{elevator\+\_\+cab,  }\item[{\mbox{\hyperlink{struct_door}{Door}}}]{door }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{functionality_8c_source_l00004}{4}} of file \mbox{\hyperlink{functionality_8c_source}{functionality.\+c}}.
+
+\mbox{\Hypertarget{functionality_8h_adb2a8954815704a90cbd1771195911d4}\label{functionality_8h_adb2a8954815704a90cbd1771195911d4}} 
+\index{functionality.h@{functionality.h}!timer@{timer}}
+\index{timer@{timer}!functionality.h@{functionality.h}}
+\doxysubsubsection{\texorpdfstring{timer()}{timer()}}
+{\footnotesize\ttfamily void timer (\begin{DoxyParamCaption}\item[{int}]{seconds,  }\item[{\mbox{\hyperlink{struct_state_machine}{State\+Machine}} $\ast$}]{state\+\_\+machine }\end{DoxyParamCaption})}
+
+
+
+Timer can count a given amount of seconds, and handles door-\/obstructions and emergencies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+p seconds Amount of seconds the timer should count ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em } & \\
+\hline
+\end{DoxyParams}
+p state\+\_\+machine Pointer to a {\ttfamily \mbox{\hyperlink{struct_state_machine}{State\+Machine}}} object
+
+
+\begin{DoxyItemize}
+\item if three seconds has elapsed, it breaks the loop
+\item if the stopbutton is pressed, it constantly clears the Orderlist, and restarts the count. This is to ensure emergency functionality when timer is called in main
+\item if obstruction-\/sensor is activated, it restarts the count
+\item it also polls the Orderlist as so that orders can be registered when the timer is activated in main 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{functionality_8c_source_l00053}{53}} of file \mbox{\hyperlink{functionality_8c_source}{functionality.\+c}}.
+

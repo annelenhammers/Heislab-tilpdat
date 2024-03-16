@@ -1,0 +1,126 @@
+\hypertarget{elevator__cab_8h}{}\doxysection{skeleton\+\_\+project/source/driver/elevator\+\_\+cab.h File Reference}
+\label{elevator__cab_8h}\index{skeleton\_project/source/driver/elevator\_cab.h@{skeleton\_project/source/driver/elevator\_cab.h}}
+
+
+\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} stores the current direction and floor of the elevator, and constructs and initializes the cab.  
+
+
+{\ttfamily \#include \char`\"{}elevio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}con\+\_\+load.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}}
+\begin{DoxyCompactList}\small\item\em Struct that contains an elevator floor and elevator direction {\ttfamily floor} Holds a floor value from the {\ttfamily Floor} enum {\ttfamily direction} Holds a motor direction value from the {\ttfamily Motor\+Direction} struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}} \{ {\bfseries FIRST\+\_\+\+FLOOR} = 0
+, {\bfseries SECOND\+\_\+\+FLOOR} = 1
+, {\bfseries THIRD\+\_\+\+FLOOR} = 2
+, {\bfseries FOURTH\+\_\+\+FLOOR} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em Floor is an enum to keep track of the defined elevator floors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\+\_\+current\+\_\+floor}} ()
+\begin{DoxyCompactList}\small\item\em reads the current floor from the floor sensor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{initialize\+\_\+elevator\+\_\+cab}} (\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} $\ast$elevator\+\_\+cab)
+\begin{DoxyCompactList}\small\item\em Brings the elevator cab to the first floor when starting the program. Sets and checks the states floor-\/ and direction states in order to do so. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} $\ast$ \mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{elevator\+\_\+cab\+\_\+constructor}} (\mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}} floor, Motor\+Direction direction)
+\begin{DoxyCompactList}\small\item\em creates a pointer to an elevator\+\_\+cab object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} stores the current direction and floor of the elevator, and constructs and initializes the cab. 
+
+
+
+Definition in file \mbox{\hyperlink{elevator__cab_8h_source}{elevator\+\_\+cab.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}\label{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}} 
+\index{elevator\_cab.h@{elevator\_cab.h}!Floor@{Floor}}
+\index{Floor@{Floor}!elevator\_cab.h@{elevator\_cab.h}}
+\doxysubsubsection{\texorpdfstring{Floor}{Floor}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}}}
+
+
+
+Floor is an enum to keep track of the defined elevator floors. 
+
+
+
+Definition at line \mbox{\hyperlink{elevator__cab_8h_source_l00018}{18}} of file \mbox{\hyperlink{elevator__cab_8h_source}{elevator\+\_\+cab.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}\label{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}} 
+\index{elevator\_cab.h@{elevator\_cab.h}!elevator\_cab\_constructor@{elevator\_cab\_constructor}}
+\index{elevator\_cab\_constructor@{elevator\_cab\_constructor}!elevator\_cab.h@{elevator\_cab.h}}
+\doxysubsubsection{\texorpdfstring{elevator\_cab\_constructor()}{elevator\_cab\_constructor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} $\ast$ elevator\+\_\+cab\+\_\+constructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}}}]{floor,  }\item[{Motor\+Direction}]{direction }\end{DoxyParamCaption})}
+
+
+
+creates a pointer to an elevator\+\_\+cab object 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em floor} & Sets the floor memeber variable of {\ttfamily elevator\+\_\+cab} to the value of {\ttfamily floor} \\
+\hline
+\mbox{\texttt{ in}}  & {\em direction} & Sets the direction memeber variable of {\ttfamily elevator\+\_\+cab} to the value of {\ttfamily direction} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\&\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} dereferenced pointer value of {\ttfamily elevatro\+\_\+cab} 
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item {\ttfamily elevator\+\_\+cab} is a global variable in the c-\/file 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{elevator__cab_8c_source_l00032}{32}} of file \mbox{\hyperlink{elevator__cab_8c_source}{elevator\+\_\+cab.\+c}}.
+
+\mbox{\Hypertarget{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}\label{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}} 
+\index{elevator\_cab.h@{elevator\_cab.h}!initialize\_elevator\_cab@{initialize\_elevator\_cab}}
+\index{initialize\_elevator\_cab@{initialize\_elevator\_cab}!elevator\_cab.h@{elevator\_cab.h}}
+\doxysubsubsection{\texorpdfstring{initialize\_elevator\_cab()}{initialize\_elevator\_cab()}}
+{\footnotesize\ttfamily void initialize\+\_\+elevator\+\_\+cab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}} $\ast$}]{elevator\+\_\+cab }\end{DoxyParamCaption})}
+
+
+
+Brings the elevator cab to the first floor when starting the program. Sets and checks the states floor-\/ and direction states in order to do so. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em elevator\+\_\+cab} & Pointer to an {\ttfamily \mbox{\hyperlink{struct_elevator__cab}{Elevator\+\_\+cab}}} object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{elevator__cab_8c_source_l00012}{12}} of file \mbox{\hyperlink{elevator__cab_8c_source}{elevator\+\_\+cab.\+c}}.
+
+\mbox{\Hypertarget{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}\label{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}} 
+\index{elevator\_cab.h@{elevator\_cab.h}!read\_current\_floor@{read\_current\_floor}}
+\index{read\_current\_floor@{read\_current\_floor}!elevator\_cab.h@{elevator\_cab.h}}
+\doxysubsubsection{\texorpdfstring{read\_current\_floor()}{read\_current\_floor()}}
+{\footnotesize\ttfamily int read\+\_\+current\+\_\+floor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reads the current floor from the floor sensor 
+
+\begin{DoxyReturn}{Returns}
+int with a value from -\/1 to 3 depending on the floor 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{elevator__cab_8c_source_l00006}{6}} of file \mbox{\hyperlink{elevator__cab_8c_source}{elevator\+\_\+cab.\+c}}.
+

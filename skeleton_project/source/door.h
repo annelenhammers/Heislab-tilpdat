@@ -1,9 +1,14 @@
+/*!
+ * @file 
+ * @brief Door keeps the doorstates, and have functions to open, close and construct a door
+ */
+
 #pragma once
 
-// #include "panels.h"
-
-
-
+/*!
+ * @brief Doorstate is an enum containing the doorstates @p OPEN and @p CLOSED
+ * 
+ */
 typedef enum {
    
     OPEN = 1,
@@ -11,31 +16,34 @@ typedef enum {
 
 } DoorState;
 
-
-
+/*!
+ * @brief Door is a struct that keeps the Doorstate
+ */
 typedef struct {
-
     DoorState doorstate;
-    int obstruction;
-
 } Door;
 
-
-
-
-int getObstructionState(Door* door);
-void setObstructionState(Door* door, int obstruction);
-
-void setDoorState(Door* door, DoorState doorstate);
-DoorState getDoorState(Door* door);
-
+/*!
+ * @brief Opens the door by setting the doorlight, and changes the Doorstate to OPEN
+ * @param[in] door is a pointer to a door object
+ */
 void _openDoor(Door* door);
+
+/*!
+ * @brief Closes door by setting the doorlight, and changes the Doorstate to CLOSED
+ * 
+ * @param[in] door is a pointer to a door object
+ */
+
 void close_door(Door* door);
-void obstruction(Door* door); //det er en funksjon og en int?
 
-void initialize_door(Door* door, int obstruction);
-Door door_constructor(DoorState Door, int obstruction);
+/*!
+ * @brief Constructs an instance of a door object
+ * 
+ * @param Door 
+ * @return door
+ */
+Door door_constructor(DoorState Door);
 
-//void destroyDoor(Door* door);
 
 

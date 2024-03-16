@@ -1,0 +1,53 @@
+\hypertarget{elevator__cab_8c_source}{}\doxysection{elevator\+\_\+cab.\+c}
+\label{elevator__cab_8c_source}\index{skeleton\_project/source/driver/elevator\_cab.c@{skeleton\_project/source/driver/elevator\_cab.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{elevator__cab_8h}{elevator\_cab.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00003}00003 \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}} elevator\_cab;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00006}\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{00006}} \textcolor{keywordtype}{int} \mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}() \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00007}00007     \textcolor{keywordtype}{int} floor = elevio\_floorSensor();}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00008}00008     \textcolor{keywordflow}{return} floor;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00009}00009 \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00012}\mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{initialize\_elevator\_cab}}(\mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* elevator\_cab) \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00013}00013     \textcolor{keywordflow}{while}(\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}() != FIRST\_FLOOR) \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00014}00014         elevator\_cab -\/> floor = \mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}();}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00015}00015         elevator\_cab -\/> direction = DIRN\_DOWN;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00016}00016         elevio\_motorDirection(DIRN\_DOWN);}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00017}00017         \textcolor{keywordflow}{if}(\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}() == FIRST\_FLOOR) \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00018}00018             elevator\_cab -\/> direction = DIRN\_DOWN;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00019}00019             elevator\_cab -\/> floor = FIRST\_FLOOR;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00020}00020             elevio\_motorDirection(DIRN\_STOP);}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00021}00021             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00023}00023     \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00025}00025     \textcolor{keywordflow}{if}(\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}(elevator\_cab) == FIRST\_FLOOR) \{}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00026}00026         elevator\_cab -\/> direction = DIRN\_STOP;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00027}00027         elevio\_motorDirection(DIRN\_STOP);}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00028}00028         elevator\_cab -\/> floor = FIRST\_FLOOR;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00030}00030 \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00032}\mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{00032}} \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* \mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{elevator\_cab\_constructor}}(\mbox{\hyperlink{elevator__cab_8h_ae9399d58e2c13d1abe129309827e770f}{Floor}} floor, MotorDirection direction) \{ }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00034}00034     elevator\_cab.floor = floor;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00035}00035     elevator\_cab.direction = direction;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00037}00037     \textcolor{keywordflow}{return} \&elevator\_cab;}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00038}00038 \}}
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{elevator__cab_8c_source_l00047}00047 }
+
+\end{DoxyCode}

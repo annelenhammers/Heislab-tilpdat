@@ -19,43 +19,6 @@ void initialize_state_machine(StateMachine* statemachine) {
     initialize_elevator_cab(&(statemachine -> elevator_cab));
 }
 
-/*bool should_stop_this_floor(StateMachine* statemachine){
-    if (statemachine->elevator_cab->direction == 0) //stationary -> undefined behaviour
-    {   
-        printf("Stopping bc stopped\n");
-        return true;
-    }
-
-    if ((statemachine -> elevator_cab -> floor == N_FLOORS-1 && statemachine -> elevator_cab -> direction == DIRN_UP)|| //going up at top floor
-        (statemachine -> elevator_cab -> floor == 0 && statemachine -> elevator_cab -> direction == DIRN_DOWN)) //going down at bottom floor
-    {
-        printf("Stopping bc cant fly/dig\n");
-        return true; //Please don't let the elevator escape the building
-    }
-    if (statemachine->buttons[statemachine->elevator_cab->floor].button[(statemachine->elevator_cab->direction-1)/-2]){ //magic math 🎩🪄  checks if someone wants to join the elevator in the current direction at the current floor
-        printf("Stopping bc magic\n");
-        return true;
-    }
-    if (statemachine->buttons[statemachine->elevator_cab->floor].button[2]){ //someone wants to get off
-        
-        printf("Stopping bc ppl escape\n");
-        return true;
-    }
-    for (int i = statemachine->elevator_cab->floor + statemachine->elevator_cab->direction; i >= 0 && i < N_FLOORS; i += statemachine->elevator_cab->direction)
-    {
-        if(statemachine->buttons[i].button[0] || statemachine->buttons[i].button[1] || statemachine->buttons[i].button[2])//Check if should go past and pick up on the way back
-        {
-            return false;
-        }
-    }
-    if(statemachine->buttons[statemachine->elevator_cab->floor].button[(statemachine->elevator_cab->direction+1)/2]) //Going opposite direction
-    {
-        printf("Stopping opposite\n");
-        return true;
-    }
-    return false;
-}*/
-
 bool should_stop_this_floor(StateMachine* statemachine){
     if (statemachine->buttons[statemachine->elevator_cab.floor].button[(statemachine->elevator_cab.direction-1)/-2]){ //magic math 🎩🪄  checks if someone wants to join the elevator in the current direction at the current floor
         printf("Stopping bc magic\n");
@@ -66,6 +29,10 @@ bool should_stop_this_floor(StateMachine* statemachine){
         printf("Stopping bc ppl escape\n");
         return true;
     }
+
+    //hvis ingen av if-ene over er blitt kjørt, ser den etter ordre på etasjene over/under seg, og går forbi current floor hvis det er noen over/under seg som vil på
+    //de som trykket ned når heis var på veg opp t.d vil bli plukket opp når heisen har snudd igjen, og første if kjøres
+
     for (int i = statemachine->elevator_cab.floor + statemachine->elevator_cab.direction; i >= 0 && i < N_FLOORS; i += statemachine->elevator_cab.direction)
     {
         if(statemachine->buttons[i].button[0] || statemachine->buttons[i].button[1] || statemachine->buttons[i].button[2])//Check if should go past and pick up on the way back
@@ -73,6 +40,7 @@ bool should_stop_this_floor(StateMachine* statemachine){
             return false;
         }
     }
+    // hvis ingen av dei andre if'ene matcha, kan heisen plukke opp dei som har trykket på knapp i motsatt av kjøreretning
     if(statemachine->buttons[statemachine->elevator_cab.floor].button[(statemachine->elevator_cab.direction+1)/2]) //Going opposite direction
     {
         printf("Stopping opposite\n");
@@ -82,7 +50,7 @@ bool should_stop_this_floor(StateMachine* statemachine){
 }
 
 
-void timer(int sec, StateMachine *state_machine) {
+void timer(int seconds, StateMachine *state_machine) {
     time_t start = time(NULL);
     time_t elapsed_time;
     
@@ -90,18 +58,16 @@ void timer(int sec, StateMachine *state_machine) {
 
     while (1) {
         elapsed_time = time(NULL) - start;
-        // printf("elapsed: %d\n", elapsed_time);
 
-        if (elapsed_time >= sec) {
+        if (elapsed_time >= seconds) {
             break;
         }
-
         // Your other code goes here
         if (elevio_stopButton()){
             elevio_stopLamp(1);
             // printf("Stopped\n");
             for(int f = 0; f < N_FLOORS; f++){
-                printf("stopping buttons\n");
+                //printf("stopping buttons\n");
                 for(int b = 0; b < N_BUTTONS; b++) {
                     state_machine->buttons[f].button[b] = 0;
                     elevio_buttonLamp(f, b, 0);
@@ -125,7 +91,3 @@ void timer(int sec, StateMachine *state_machine) {
         }
     }
 }
-
-//void destroy_state_machine(StateMachine* statemachine) {
-//    free(statemachine);
-//}
