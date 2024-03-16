@@ -10,6 +10,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+void stopMotor();
+
 /*!
  * @brief Floor is an enum to keep track of the defined elevator floors
  * 

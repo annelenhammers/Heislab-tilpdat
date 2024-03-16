@@ -2,6 +2,9 @@
 
 Elevator_cab elevator_cab;
 
+void stopMotor() {
+    elevio_motorDirection(DIRN_STOP);
+}
 
 int read_current_floor() {
     int floor = elevio_floorSensor();
