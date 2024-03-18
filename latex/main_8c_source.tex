@@ -3,181 +3,161 @@
 \mbox{\hyperlink{main_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00001}00001 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00005}00005 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00006}00006 \textcolor{preprocessor}{\#include <stdlib.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007 \textcolor{preprocessor}{\#include <signal.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008 \textcolor{preprocessor}{\#include <time.h>}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009 \textcolor{preprocessor}{\#include "{}driver/elevio.h"{}}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{elevator__cab_8h}{driver/elevator\_cab.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{functionality_8h}{functionality.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}\mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{00042}} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044     elevio\_init();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046     \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* elevator\_cab = \mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{elevator\_cab\_constructor}}(\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}(), DIRN\_STOP); }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047     \mbox{\hyperlink{struct_door}{Door}} door = \mbox{\hyperlink{door_8h_a38927b258862d6487488a8238b8ded72}{door\_constructor}}(0);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048     \textcolor{comment}{// printf("{}door \%p\(\backslash\)n"{},(void *) \&(door.doorstate));}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049     printf(\textcolor{stringliteral}{"{}door \%i\(\backslash\)n"{}}, door.doorstate);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051     \mbox{\hyperlink{struct_state_machine}{StateMachine}} state\_machine = state\_machine\_constructor(*elevator\_cab, door);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052     printf(\textcolor{stringliteral}{"{}sm \%i\(\backslash\)n"{}}, state\_machine.elevator\_cab.floor);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053     \mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{initialize\_elevator\_cab}}(elevator\_cab);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055     printf(\textcolor{stringliteral}{"{}=== Elevator Program is running ===\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056     printf(\textcolor{stringliteral}{"{}Go through the requirements for the FAT-\/test\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058     state\_machine.elevator\_cab.direction = DIRN\_UP;  \textcolor{comment}{// initialiseres til første etasje, så setter neste direction til DIRN\_UP}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060     \textcolor{keywordflow}{while}(1) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061         \textcolor{keywordtype}{int} floor = elevio\_floorSensor();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062         state\_machine.elevator\_cab.floor = floor; }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064         \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor != -\/1)}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065         \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066             elevio\_floorIndicator(state\_machine.elevator\_cab.floor);    \textcolor{comment}{//oppdaterer etasjelysene}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067             state\_machine.prev\_stop\_floor = state\_machine.elevator\_cab.floor; \textcolor{comment}{//husker forrige floor}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069         }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070         \textcolor{keywordflow}{if}(state\_machine.elevator\_cab.floor != -\/1) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071             }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072             \textcolor{comment}{// printf("{}Checking if should stop\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00074}00074             \textcolor{keywordflow}{if}(\mbox{\hyperlink{functionality_8h_a08281bafab5e837d6f0a6924c9e89397}{should\_stop\_this\_floor}}(\&state\_machine)) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075                 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076                 stopMotor();}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00077}00077                 \mbox{\hyperlink{door_8h_a7cf33838e98dfd8ce613c661d28dbd0e}{\_openDoor}}(\&door);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00078}00078                 \mbox{\hyperlink{functionality_8h_adb2a8954815704a90cbd1771195911d4}{timer}}(3, \&state\_machine);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00079}00079                 \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\_door}}(\&door);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00081}00081                 printf(\textcolor{stringliteral}{"{}Stopping at floor \%d\(\backslash\)n"{}}, state\_machine.elevator\_cab.floor);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}00082                 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N\_BUTTONS; i++) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084                    }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085                     state\_machine.buttons[state\_machine.elevator\_cab.floor].button[i] = \textcolor{keyword}{false}; \textcolor{comment}{//clear order}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086                     elevio\_buttonLamp(state\_machine.elevator\_cab.floor, i, 0); \textcolor{comment}{//clear lamp}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087                 \}     }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00088}00088             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00089}00089         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00090}00090 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00091}00091         \textcolor{comment}{//polling the buttons and updating the state machine}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00092}00092         \textcolor{keywordflow}{if} (elevio\_stopButton())\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00093}00093             \textcolor{keywordflow}{if}(!state\_machine.stopButton)\{ \textcolor{comment}{//hvis stopButton-\/state er false, settes lampa høg}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}00094                 elevio\_stopLamp(1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00007}00007 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00008}00008 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00009}00009 \textcolor{preprocessor}{\#include <signal.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00010}00010 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{elevio_8h}{driver/elevio.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{elevator__cab_8h}{driver/elevator\_cab.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{functionality_8h}{functionality.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00015}00015 \textcolor{keywordtype}{int} main() \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00017}00017     elevio\_init();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00019}00019     \mbox{\hyperlink{struct_elevator__cab}{Elevator\_cab}}* elevator\_cab = \mbox{\hyperlink{elevator__cab_8h_a63f6397b9b2b4833c1175dc04b6bce9a}{elevator\_cab\_constructor}}(\mbox{\hyperlink{elevator__cab_8h_ab21b576bc3208f52294c7e32d4d17a68}{read\_current\_floor}}(), DIRN\_STOP); }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00020}00020     \mbox{\hyperlink{struct_door}{Door}} door = \mbox{\hyperlink{door_8h_a38927b258862d6487488a8238b8ded72}{door\_constructor}}(0);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00021}00021     \mbox{\hyperlink{struct_state_machine}{StateMachine}} state\_machine = \mbox{\hyperlink{functionality_8h_af2dd361ce8ef2ea3c1046e8e429d342d}{state\_machine\_constructor}}(*elevator\_cab, door);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00023}00023     \mbox{\hyperlink{elevator__cab_8h_a8ad23b6a66ca8118c854f521853efec1}{initialize\_elevator\_cab}}(elevator\_cab);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00025}00025     printf(\textcolor{stringliteral}{"{}=== Elevator Program is running ===\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00027}00027     state\_machine.elevator\_cab.direction = DIRN\_UP;  \textcolor{comment}{//The elevator is initialized to first floor, so the direction state is set to DIRN\_UP}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00029}00029     \textcolor{keywordflow}{while}(1) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00030}00030         \textcolor{keywordtype}{int} floor = elevio\_floorSensor();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00031}00031         state\_machine.elevator\_cab.floor = floor; \textcolor{comment}{//floor-\/state is set to the floor sensor value at the start of each loop}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00033}00033         \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor != -\/1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00034}00034         \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00035}00035             elevio\_floorIndicator(state\_machine.elevator\_cab.floor);    \textcolor{comment}{//updates the floor lights on the panel}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00036}00036             state\_machine.prev\_stop\_floor = state\_machine.elevator\_cab.floor; \textcolor{comment}{//prev\_stop\_floor variable is set to the current floor-\/state so that the last defined floor is stored}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00038}00038         }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00039}00039         \textcolor{keywordflow}{if}(state\_machine.elevator\_cab.floor != -\/1) \{           }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00040}00040             \textcolor{keywordflow}{if}(\mbox{\hyperlink{functionality_8h_a08281bafab5e837d6f0a6924c9e89397}{should\_stop\_this\_floor}}(\&state\_machine)) \{  }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00041}00041                 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00042}00042                 \mbox{\hyperlink{elevator__cab_8h_ac485965697295992f2599633a3f5126a}{stopMotor}}();}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00043}00043                 \mbox{\hyperlink{door_8h_aa45f88921f0aec1c9c94276dba67a042}{open\_Door}}(\&door);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00044}00044                 \mbox{\hyperlink{functionality_8h_adb2a8954815704a90cbd1771195911d4}{timer}}(3, \&state\_machine); \textcolor{comment}{//timer has its own properties to take care of orders and obstruction and stop cases}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00045}00045                 \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\_door}}(\&door);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00047}00047                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N\_BUTTONS; i++) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00048}00048                     state\_machine.buttons[state\_machine.elevator\_cab.floor].button[i] = \textcolor{keyword}{false}; \textcolor{comment}{//clear order}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00049}00049                     elevio\_buttonLamp(state\_machine.elevator\_cab.floor, i, 0); \textcolor{comment}{//clear lamp}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00050}00050                 \}     }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00051}00051             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00054}00054         \textcolor{comment}{//if StopButton is pressed}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00055}00055         \textcolor{keywordflow}{if} (elevio\_stopButton())\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00057}00057             \textcolor{keywordflow}{if}(!state\_machine.stopButton)\{ \textcolor{comment}{//if the stopButton-\/variable is false, the stopLamp is set high}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00058}00058                 elevio\_stopLamp(1);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00059}00059             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00061}00061             state\_machine.stopButton = \textcolor{keyword}{true}; \textcolor{comment}{//stopbutton is set high}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00062}00062             state\_machine.stationary = \textcolor{keyword}{true}; \textcolor{comment}{//stationary is set high as the elevator is stopped}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00063}00063             \mbox{\hyperlink{elevator__cab_8h_ac485965697295992f2599633a3f5126a}{stopMotor}}();                     \textcolor{comment}{//motor is stopped}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00065}00065             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} f = 0; f < N\_FLOORS; f++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00066}00066                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} b = 0; b < N\_BUTTONS; b++) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00067}00067                     state\_machine.buttons[f].button[b] = 0; \textcolor{comment}{//all orders gets deleted}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00068}00068                     elevio\_buttonLamp(f, b, 0); \textcolor{comment}{//all lampes are turned off}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00069}00069                 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00070}00070             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00071}00071             \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor != -\/1)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00072}00072             \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00073}00073                 \mbox{\hyperlink{door_8h_aa45f88921f0aec1c9c94276dba67a042}{open\_Door}}(\&door); \textcolor{comment}{//door opens if the elevator is at a defined floor}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00074}00074                 \mbox{\hyperlink{functionality_8h_adb2a8954815704a90cbd1771195911d4}{timer}}(3, \&state\_machine); \textcolor{comment}{//door is kept open until stopButton is false again, see timer function. It waits another 3 seconds when stopButton is false}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00075}00075                 \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\_door}}(\&door); \textcolor{comment}{//Door closes when timer is finished}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00076}00076             \} }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00077}00077             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00078}00078                 \textcolor{keywordflow}{continue}; \textcolor{comment}{//if the elevator is in between floors, it continues to the next step}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00079}00079             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00080}00080         \} }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00082}00082         \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00083}00083             \textcolor{keywordflow}{if} (state\_machine.stopButton)\{ \textcolor{comment}{//if stopButtons isn't pressed anymore, but the stopButton variable is still set high, stoplamp is turned off and stopButton is set low}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00084}00084                 elevio\_stopLamp(0); }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00085}00085                 state\_machine.stopButton = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00086}00086             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00087}00087             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} f = 0; f < N\_FLOORS; f++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00088}00088                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} b = 0; b < N\_BUTTONS; b++) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00089}00089                     \textcolor{keywordtype}{int} btnPressed = elevio\_callButton(f, b);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00090}00090                     \textcolor{keywordflow}{if} (btnPressed) \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00091}00091                         state\_machine.buttons[f].button[b] = btnPressed; \textcolor{comment}{//take orders}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00092}00092                         elevio\_buttonLamp(f, b, btnPressed); \textcolor{comment}{//turn on lamp if orders are taken}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00093}00093                     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00094}00094                 \}}
 \DoxyCodeLine{\Hypertarget{main_8c_source_l00095}00095             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096             state\_machine.stopButton = \textcolor{keyword}{true}; \textcolor{comment}{//stopbutton-\/state settes høy}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097             state\_machine.stationary = \textcolor{keyword}{true}; \textcolor{comment}{//stationary sier at heisen er stoppet, settes høy}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098             elevio\_motorDirection(DIRN\_STOP); \textcolor{comment}{//motoren stoppes}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} f = 0; f < N\_FLOORS; f++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100                 \textcolor{comment}{// printf("{}Polling buttons\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} b = 0; b < N\_BUTTONS; b++) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102                     state\_machine.buttons[f].button[b] = 0; \textcolor{comment}{//alle bestillinger slettes}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103                     elevio\_buttonLamp(f, b, 0); \textcolor{comment}{//alle lampene slukkes}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106             \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor != -\/1)}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107             \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108                 \mbox{\hyperlink{door_8h_a7cf33838e98dfd8ce613c661d28dbd0e}{\_openDoor}}(\&door); \textcolor{comment}{//dør åpnes hvis den er på et floor}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109                 \mbox{\hyperlink{functionality_8h_adb2a8954815704a90cbd1771195911d4}{timer}}(3, \&state\_machine); \textcolor{comment}{//det er stopbuttonfunkjsonalitet i timer også, så den holdes åpen. skal vente 3 sek tilslutt}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110                 \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\_door}}(\&door); \textcolor{comment}{//denne kjøres når timer går ut og stopButton er lav igjen}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111             \} \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00112}00112                 \textcolor{keywordflow}{continue}; \textcolor{comment}{//hopper videre hvis mellom floors, skal ikke gjøre noe spes da}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00113}00113             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00114}00114         \} \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00115}00115             \textcolor{keywordflow}{if} (state\_machine.stopButton)\{ \textcolor{comment}{//hvis stop-\/state er høy og stoppknapp ikke er trykket, slukk lampa og set state lav}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}00116                 elevio\_stopLamp(0); }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117                 printf(\textcolor{stringliteral}{"{}Returning from alarm\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118                 state\_machine.stopButton = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119                 \textcolor{comment}{// state\_machine.stationary = false;}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} f = 0; f < N\_FLOORS; f++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00122}00122                 \textcolor{comment}{// printf("{}Polling buttons\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00123}00123                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} b = 0; b < N\_BUTTONS; b++) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00124}00124                     \textcolor{keywordtype}{int} btnPressed = elevio\_callButton(f, b);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00125}00125                     \textcolor{keywordflow}{if} (btnPressed) \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00126}00126                         state\_machine.buttons[f].button[b] = btnPressed; \textcolor{comment}{//ta bestillinger}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00127}00127                         elevio\_buttonLamp(f, b, btnPressed); \textcolor{comment}{//slå på lampa}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}00128                     \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00130}00130             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00131}00131         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00132}00132 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00133}00133 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00134}00134         \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor == -\/1)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00135}00135             \textcolor{keywordflow}{if} (state\_machine.stationary)\{ \textcolor{comment}{//Alarm restart only, hvis den har stoppa mellom floors er stationary true, så den må komme seg på plass igjen}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00136}00136                 \textcolor{comment}{//printf("{}alarm restart\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00137}00137                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.prev\_stop\_floor + state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i += state\_machine.elevator\_cab.direction)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00138}00138                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00139}00139                         \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00140}00140                         \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}00141                             \textcolor{comment}{//printf("{}Stuck on floors1\(\backslash\)n"{});   }}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142                             state\_machine.stationary = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143                             \textcolor{keywordflow}{goto} dir\_check;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144                         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145                     \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.prev\_stop\_floor; i >= 0 \&\& i < N\_FLOORS; i -\/= state\_machine.elevator\_cab.direction)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149                         \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150                         \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00151}00151                             \textcolor{comment}{//printf("{}Stuck on floors2\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00152}00152                             \textcolor{comment}{//printf("{}on\%d\(\backslash\)n"{}, state\_machine.elevator\_cab.floor);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00153}00153                             \textcolor{comment}{//printf("{}cab\_dir \%d\(\backslash\)n"{}, state\_machine.elevator\_cab.direction);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00154}00154                             state\_machine.stationary = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00155}00155                             state\_machine.elevator\_cab.direction = -\/state\_machine.elevator\_cab.direction;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00156}00156                             \textcolor{comment}{//printf("{}cab\_dir after \%d\(\backslash\)n"{}, state\_machine.elevator\_cab.direction);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157                             \textcolor{keywordflow}{goto} dir\_check;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00158}00158                         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00159}00159                     \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00160}00160                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00161}00161             \} \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00162}00162                 \textcolor{keywordflow}{goto} dir\_check;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00163}00163             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00164}00164         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00165}00165 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00166}00166         \textcolor{comment}{//sjekker floors over seg hvis den går oppover /under seg hvis den går nedover, og sjekker om noen form for knapp(opp,ned eller cab) er trykket}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00167}00167         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.elevator\_cab.floor + state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i += state\_machine.elevator\_cab.direction)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00168}00168             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00169}00169                 \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00170}00170                 \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00171}00171                     \textcolor{comment}{//printf("{}Stuck on floors1\(\backslash\)n"{});   }}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00172}00172                     state\_machine.stationary = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00173}00173                     \textcolor{keywordflow}{goto} dir\_check;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00174}00174                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00175}00175             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00176}00176         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00177}00177         \textcolor{comment}{//sjekker floors i motsatt retning av direction}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00178}00178         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.elevator\_cab.floor -\/ state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i -\/= state\_machine.elevator\_cab.direction)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00179}00179             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00180}00180                 \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00181}00181                 \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00182}00182                     \textcolor{comment}{//printf("{}Stuck on floors2\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00183}00183                     \textcolor{comment}{//printf("{}on\%d\(\backslash\)n"{}, state\_machine.elevator\_cab.floor);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00184}00184                     \textcolor{comment}{//printf("{}cab\_dir \%d\(\backslash\)n"{}, state\_machine.elevator\_cab.direction);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00185}00185                     state\_machine.stationary = \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00186}00186                     state\_machine.elevator\_cab.direction = -\/state\_machine.elevator\_cab.direction; \textcolor{comment}{//setter motsatt direction}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00187}00187                     \textcolor{comment}{//printf("{}cab\_dir after \%d\(\backslash\)n"{}, state\_machine.elevator\_cab.direction);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00188}00188                     \textcolor{keywordflow}{goto} dir\_check;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00189}00189                 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00190}00190             \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00191}00191         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00192}00192         state\_machine.stationary = \textcolor{keyword}{true}; \textcolor{comment}{//hvis ingen bestillinger, så skal motore stoppes}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00193}00193 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00194}00194         dir\_check:}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00195}00195 }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00196}00196         \textcolor{keywordflow}{if} (!state\_machine.stationary)}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00197}00197         \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00198}00198             elevio\_motorDirection(state\_machine.elevator\_cab.direction);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00199}00199             \textcolor{comment}{//printf("{}Setting dir \%d\(\backslash\)n"{}, state\_machine.elevator\_cab.direction);}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00200}00200         \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00201}00201             elevio\_motorDirection(DIRN\_STOP);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00202}00202             \textcolor{comment}{// printf("{}Stopping\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00203}00203         \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00204}00204         }
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00205}00205         nanosleep(\&(\textcolor{keyword}{struct} timespec)\{0, 20*1000*100\}, NULL);}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00206}00206     \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00207}00207     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00208}00208 \}}
-\DoxyCodeLine{\Hypertarget{main_8c_source_l00209}00209       }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00096}00096         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00099}00099         \textcolor{keywordflow}{if} (state\_machine.elevator\_cab.floor == -\/1)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00100}00100             \textcolor{keywordflow}{if} (state\_machine.stationary)\{ \textcolor{comment}{//Alarm restart only, if the elevator stopped in between floors}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00101}00101                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.prev\_stop\_floor + state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i += state\_machine.elevator\_cab.direction)\{ \textcolor{comment}{//checks floors above/below the previous known floor, depending on its last direction}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00102}00102                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00103}00103                         \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j]) \textcolor{comment}{//if any buttons are pressed, stationary is set false, and it jumps to dir\_check}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00104}00104                         \{ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00105}00105                             state\_machine.stationary = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00106}00106                             \textcolor{keywordflow}{goto} dir\_check;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00107}00107                         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00108}00108                     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00109}00109                 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00110}00110                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.prev\_stop\_floor; i >= 0 \&\& i < N\_FLOORS; i -\/= state\_machine.elevator\_cab.direction)\{ \textcolor{comment}{//checks floors in opposite direction of the last known direction}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00111}00111                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00112}00112                         \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j]) \textcolor{comment}{//if any buttons are pressed, stationary is set false, and the direction-\/state is set to the opposite of what initially was, and it jumps to dir\_check}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00113}00113                         \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00114}00114                             state\_machine.stationary = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00115}00115                             state\_machine.elevator\_cab.direction = -\/state\_machine.elevator\_cab.direction;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00116}00116                             \textcolor{keywordflow}{goto} dir\_check;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00117}00117                         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00118}00118                     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00119}00119                 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00120}00120             \} }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00121}00121             \textcolor{keywordflow}{else}\{               \textcolor{comment}{//if the elevator is just inbetween floors, jump to goto\_dir}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00122}00122                 \textcolor{keywordflow}{goto} dir\_check;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00123}00123             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00124}00124         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00126}00126         \textcolor{comment}{//checks floors in the same direction first}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00127}00127         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.elevator\_cab.floor + state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i += state\_machine.elevator\_cab.direction)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00128}00128             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00129}00129                 \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00130}00130                 \{ }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00131}00131                     state\_machine.stationary = \textcolor{keyword}{false}; \textcolor{comment}{//stationary is set false, so that in dir\_check the motor isnt stopped}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00132}00132                     \textcolor{keywordflow}{goto} dir\_check;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00133}00133                 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00134}00134             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00135}00135         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00136}00136         \textcolor{comment}{//checks floor in the opposite direction}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00137}00137         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = state\_machine.elevator\_cab.floor -\/ state\_machine.elevator\_cab.direction; i >= 0 \&\& i < N\_FLOORS; i -\/= state\_machine.elevator\_cab.direction)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00138}00138             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < N\_BUTTONS; j++)\{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00139}00139                 \textcolor{keywordflow}{if} (state\_machine.buttons[i].button[j])}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00140}00140                 \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00141}00141                     state\_machine.stationary = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00142}00142                     state\_machine.elevator\_cab.direction = -\/state\_machine.elevator\_cab.direction; \textcolor{comment}{//sets the direction as the opposite, and jumps to dir\_check}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00143}00143                     \textcolor{keywordflow}{goto} dir\_check;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00144}00144                 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00145}00145             \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00146}00146         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00147}00147         state\_machine.stationary = \textcolor{keyword}{true}; \textcolor{comment}{//if there are no more orders, none of the if-\/conditions above is takes, and the motor is to be stopped until more order arrive}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00149}00149         dir\_check:}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00151}00151         \textcolor{keywordflow}{if} (!state\_machine.stationary)}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00152}00152         \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00153}00153             elevio\_motorDirection(state\_machine.elevator\_cab.direction); }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00154}00154         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00155}00155             elevio\_motorDirection(DIRN\_STOP);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00156}00156         \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00157}00157         }
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00158}00158         nanosleep(\&(\textcolor{keyword}{struct} timespec)\{0, 20*1000*100\}, NULL);}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00159}00159     \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00160}00160     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00161}00161 \}}
+\DoxyCodeLine{\Hypertarget{main_8c_source_l00162}00162       }
 
 \end{DoxyCode}

@@ -75,7 +75,7 @@ $(function() {
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;signal.h&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;driver/elevio.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="elevio_8h_source.html">driver/elevio.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="elevator__cab_8h_source.html">driver/elevator_cab.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="functionality_8h_source.html">functionality.h</a>&quot;</code><br />
 </div>
@@ -84,10 +84,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function.  <a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >see comments in the code </p>
+
+<p class="definition">Definition in file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -104,27 +107,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Main function. </p>
-<ul>
-<li>Before the while loop, the constructors and initilazers are called</li>
-<li>when the elevator is initialized, it is on the first floor. The direction is then set to DIRN_UP right before the loop 1:</li>
-<li>floor of statemachine takes the value of the floor sensor</li>
-<li>updates the floor-lights 2:</li>
-<li>checks if cab should stop at defined floors (!= -1)</li>
-<li>opens door, calls timer and closes door again</li>
-<li>Timer has logic to handle emergencies and obstruction-problems</li>
-<li>if it stopes, the order gets cleared from the buttons-array, and the order-lamp is turned off 3:</li>
-<li></li>
-<li></li>
-<li>4: the first foor-loop checks if any buttons are pressed on the floors above if direction is DIRN_UP/ below if direction is DIRN_DOWN</li>
-<li>if yes, it jumps to dir_check using goto and sets stationary to false 5: the second foor-loop checks if any buttons are pressed on the floors in the opposide direction of what the cab has/had before it stopped</li>
-<li>if yes, it sets the direction to the opposite as the one it has now, sets stationary to false and jumps to dir_check and 6: if neither of these conditions are met, it means that there are no more people in line/and stationary is set to true: 7: dir_check</li>
-<li>if stationary is false, it sets the motor to drive in the direction stated in the statemachine</li>
-<li>if not, it stops the motor</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>0 on successuful execution </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00042">42</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00015">15</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>

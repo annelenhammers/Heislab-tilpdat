@@ -72,7 +72,7 @@ $(function() {
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="functionality_8h.html">functionality.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> state_machine_constructor(<a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab, <a class="code hl_struct" href="struct_door.html">Door</a> door) {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">    4</a></span><a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> <a class="code hl_function" href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">state_machine_constructor</a>(<a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab, <a class="code hl_struct" href="struct_door.html">Door</a> door) {</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> statemachine;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    statemachine.elevator_cab = elevator_cab;</div>
@@ -86,89 +86,77 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> statemachine;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> initialize_state_machine(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">initialize_state_machine</a>(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine) {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">initialize_elevator_cab</a>(&amp;(statemachine -&gt; elevator_cab));</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">   22</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a>(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine){</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> (statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[(statemachine-&gt;elevator_cab.direction-1)/-2]){ <span class="comment">//magic math 🎩🪄  checks if someone wants to join the elevator in the current direction at the current floor</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        printf(<span class="stringliteral">&quot;Stopping bc magic\n&quot;</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[2]){ <span class="comment">//someone wants to get off</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        printf(<span class="stringliteral">&quot;Stopping bc ppl escape\n&quot;</span>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">//hvis ingen av if-ene over er blitt kjørt, ser den etter ordre på etasjene over/under seg, og går forbi current floor hvis det er noen over/under seg som vil på</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">//de som trykket ned når heis var på veg opp t.d vil bli plukket opp når heisen har snudd igjen, og første if kjøres</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = statemachine-&gt;elevator_cab.floor + statemachine-&gt;elevator_cab.direction; i &gt;= 0 &amp;&amp; i &lt; N_FLOORS; i += statemachine-&gt;elevator_cab.direction)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">if</span>(statemachine-&gt;buttons[i].button[0] || statemachine-&gt;buttons[i].button[1] || statemachine-&gt;buttons[i].button[2])<span class="comment">//Check if should go past and pick up on the way back</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// hvis ingen av dei andre if&#39;ene matcha, kan heisen plukke opp dei som har trykket på knapp i motsatt av kjøreretning</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span>(statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[(statemachine-&gt;elevator_cab.direction+1)/2]) <span class="comment">//Going opposite direction</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        printf(<span class="stringliteral">&quot;Stopping opposite\n&quot;</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span> (statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[(statemachine-&gt;elevator_cab.direction-1)/-2]){ <span class="comment">//Checks if someone wants to join the elevator in the current direction at the current floor</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> (statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[2]){ <span class="comment">//someone wants to get off</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = statemachine-&gt;elevator_cab.floor + statemachine-&gt;elevator_cab.direction; i &gt;= 0 &amp;&amp; i &lt; N_FLOORS; i += statemachine-&gt;elevator_cab.direction)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">if</span>(statemachine-&gt;buttons[i].button[0] || statemachine-&gt;buttons[i].button[1] || statemachine-&gt;buttons[i].button[2])<span class="comment">//Check if should go past and pick up on the way back</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">if</span>(statemachine-&gt;buttons[statemachine-&gt;elevator_cab.floor].button[(statemachine-&gt;elevator_cab.direction+1)/2]) <span class="comment">//Going opposite direction</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a>(<span class="keywordtype">int</span> seconds, <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> *state_machine) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    time_t start = time(NULL);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    time_t elapsed_time;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        elapsed_time = time(NULL) - start;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">   53</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a>(<span class="keywordtype">int</span> seconds, <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> *state_machine) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    time_t start = time(NULL);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    time_t elapsed_time;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    printf(<span class="stringliteral">&quot;start time: %d\n&quot;</span>, start);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        elapsed_time = time(NULL) - start;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (elapsed_time &gt;= seconds) {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// Your other code goes here</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (elevio_stopButton()){</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            elevio_stopLamp(1);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="comment">// printf(&quot;Stopped\n&quot;);</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> f = 0; f &lt; N_FLOORS; f++){</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="comment">//printf(&quot;stopping buttons\n&quot;);</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b = 0; b &lt; N_BUTTONS; b++) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                    state_machine-&gt;buttons[f].button[b] = 0;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    elevio_buttonLamp(f, b, 0);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            start = time(NULL);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="comment">// printf(&quot;Not stopped\n&quot;);</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">if</span> (elevio_obstruction()){</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            start = time(NULL);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> f = 0; f &lt; N_FLOORS; f++){</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b = 0; b &lt; N_BUTTONS; b++) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keywordtype">int</span> btnPressed = elevio_callButton(f, b);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                <span class="keywordflow">if</span> (btnPressed) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                    state_machine-&gt;buttons[f].button[b] = btnPressed;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                    elevio_buttonLamp(f, b, btnPressed);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
-<div class="ttc" id="aelevator__cab_8h_html_a8ad23b6a66ca8118c854f521853efec1"><div class="ttname"><a href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">initialize_elevator_cab</a></div><div class="ttdeci">void initialize_elevator_cab(Elevator_cab *elevator_cab)</div><div class="ttdoc">Brings the elevator cab to the first floor when starting the program. Sets and checks the states floo...</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8c_source.html#l00012">elevator_cab.c:12</a></div></div>
-<div class="ttc" id="afunctionality_8h_html"><div class="ttname"><a href="functionality_8h.html">functionality.h</a></div><div class="ttdoc">Functionality keeps the final statemachine object and has does operations when the elevator is suppos...</div></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">if</span> (elapsed_time &gt;= seconds) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (elevio_stopButton()){   <span class="comment">//stopButton</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            elevio_stopLamp(1);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> f = 0; f &lt; N_FLOORS; f++){</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b = 0; b &lt; N_BUTTONS; b++) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    state_machine-&gt;buttons[f].button[b] = 0;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                    elevio_buttonLamp(f, b, 0);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            start = time(NULL);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (elevio_obstruction()){  <span class="comment">//Obstruction -&gt; start over again</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            start = time(NULL);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> f = 0; f &lt; N_FLOORS; f++){  <span class="comment">//polls the order buttons and adds them to the button-array</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> b = 0; b &lt; N_BUTTONS; b++) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="keywordtype">int</span> btnPressed = elevio_callButton(f, b);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <span class="keywordflow">if</span> (btnPressed) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    state_machine-&gt;buttons[f].button[b] = btnPressed;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    elevio_buttonLamp(f, b, btnPressed);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="ttc" id="aelevator__cab_8h_html_a8ad23b6a66ca8118c854f521853efec1"><div class="ttname"><a href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">initialize_elevator_cab</a></div><div class="ttdeci">void initialize_elevator_cab(Elevator_cab *elevator_cab)</div><div class="ttdoc">Brings the elevator cab to the first floor when starting the program. Sets and checks the floor- and ...</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8c_source.html#l00016">elevator_cab.c:16</a></div></div>
+<div class="ttc" id="afunctionality_8h_html"><div class="ttname"><a href="functionality_8h.html">functionality.h</a></div><div class="ttdoc">functionality.h keeps the final statemachine object and contains a timer functionality and logic for ...</div></div>
 <div class="ttc" id="afunctionality_8h_html_a08281bafab5e837d6f0a6924c9e89397"><div class="ttname"><a href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a></div><div class="ttdeci">bool should_stop_this_floor(StateMachine *statemachine)</div><div class="ttdoc">Determines whether the elevator should stop at the current floor.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00022">functionality.c:22</a></div></div>
-<div class="ttc" id="afunctionality_8h_html_adb2a8954815704a90cbd1771195911d4"><div class="ttname"><a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a></div><div class="ttdeci">void timer(int seconds, StateMachine *state_machine)</div><div class="ttdoc">Timer can count a given amount of seconds, and handles door-obstructions and emergencies.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00053">functionality.c:53</a></div></div>
-<div class="ttc" id="astruct_door_html"><div class="ttname"><a href="struct_door.html">Door</a></div><div class="ttdoc">Door is a struct that keeps the Doorstate.</div><div class="ttdef"><b>Definition:</b> <a href="door_8h_source.html#l00022">door.h:22</a></div></div>
-<div class="ttc" id="astruct_elevator__cab_html"><div class="ttname"><a href="struct_elevator__cab.html">Elevator_cab</a></div><div class="ttdoc">Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8h_source.html#l00032">elevator_cab.h:32</a></div></div>
-<div class="ttc" id="astruct_state_machine_html"><div class="ttname"><a href="struct_state_machine.html">StateMachine</a></div><div class="ttdoc">StateMachine Struct representing a collection of states</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00034">functionality.h:34</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_a8c1077e84c6c1d268ec712f4bbe30441"><div class="ttname"><a href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">initialize_state_machine</a></div><div class="ttdeci">void initialize_state_machine(StateMachine *statemachine)</div><div class="ttdoc">Physically initializes the elevator. Calls the &quot;initilaize_elevator_cab&quot;-function.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00018">functionality.c:18</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_adb2a8954815704a90cbd1771195911d4"><div class="ttname"><a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a></div><div class="ttdeci">void timer(int seconds, StateMachine *state_machine)</div><div class="ttdoc">Timer.h can count a given amount of seconds, and handles button polling, door-obstructions and stopBu...</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00045">functionality.c:45</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_af2dd361ce8ef2ea3c1046e8e429d342d"><div class="ttname"><a href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">state_machine_constructor</a></div><div class="ttdeci">StateMachine state_machine_constructor(Elevator_cab elevator_cab, Door door)</div><div class="ttdoc">Constructs and returns an instance of a statemachine.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00004">functionality.c:4</a></div></div>
+<div class="ttc" id="astruct_door_html"><div class="ttname"><a href="struct_door.html">Door</a></div><div class="ttdoc">Struct that keeps a Doorstate.</div><div class="ttdef"><b>Definition:</b> <a href="door_8h_source.html#l00022">door.h:22</a></div></div>
+<div class="ttc" id="astruct_elevator__cab_html"><div class="ttname"><a href="struct_elevator__cab.html">Elevator_cab</a></div><div class="ttdoc">Struct that contains an elevator floor and elevator direction.</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8h_source.html#l00038">elevator_cab.h:38</a></div></div>
+<div class="ttc" id="astruct_state_machine_html"><div class="ttname"><a href="struct_state_machine.html">StateMachine</a></div><div class="ttdoc">Struct representing a collection of states and buttons.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00032">functionality.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

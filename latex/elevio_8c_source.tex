@@ -10,7 +10,7 @@
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00006}00006 \textcolor{preprocessor}{\#include <stdio.h>}}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00007}00007 \textcolor{preprocessor}{\#include <pthread.h>}}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{elevio_8c_source_l00009}00009 \textcolor{preprocessor}{\#include "{}elevio.h"{}}}
+\DoxyCodeLine{\Hypertarget{elevio_8c_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{elevio_8h}{elevio.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00010}00010 \textcolor{preprocessor}{\#include "{}con\_load.h"{}}}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00011}00011 }
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00012}00012 \textcolor{keyword}{static} \textcolor{keywordtype}{int} sockfd;}
@@ -48,7 +48,7 @@
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00044}00044 }
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00045}00045 }
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00046}00046 }
-\DoxyCodeLine{\Hypertarget{elevio_8c_source_l00047}00047 \textcolor{keywordtype}{void} elevio\_motorDirection(MotorDirection dirn)\{}
+\DoxyCodeLine{\Hypertarget{elevio_8c_source_l00047}00047 \textcolor{keywordtype}{void} elevio\_motorDirection(\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{MotorDirection}} dirn)\{}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00048}00048     pthread\_mutex\_lock(\&sockmtx);}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00049}00049     send(sockfd, (\textcolor{keywordtype}{char}[4])\{1, dirn\}, 4, 0);}
 \DoxyCodeLine{\Hypertarget{elevio_8c_source_l00050}00050     pthread\_mutex\_unlock(\&sockmtx);}

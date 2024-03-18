@@ -70,46 +70,46 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="functionality_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="elevator__cab_8h.html">driver/elevator_cab.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="door_8h.html">door.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;time.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_all_buttons.html">   18</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_all_buttons.html">AllButtons</a>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> button[N_BUTTONS];</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_state_machine.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_struct" href="struct_door.html">Door</a> door;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_all_buttons.html">AllButtons</a> buttons[N_FLOORS]; </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> stationary;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> stopButton;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> prev_stop_floor;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="elevator__cab_8h.html">driver/elevator_cab.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="door_8h.html">door.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;time.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct_all_buttons.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_all_buttons.html">AllButtons</a>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">bool</span> button[N_BUTTONS];</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_state_machine.html">   32</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_struct" href="struct_door.html">Door</a> door;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_all_buttons.html">AllButtons</a> buttons[N_FLOORS]; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> stationary;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> stopButton;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> prev_stop_floor;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>} <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> state_machine_constructor(<a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab, <a class="code hl_struct" href="struct_door.html">Door</a> door);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> initialize_state_machine(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">bool</span> <a class="code hl_function" href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a>(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a>(<span class="keywordtype">int</span> seconds, <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* state_machine);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="ttc" id="adoor_8h_html"><div class="ttname"><a href="door_8h.html">door.h</a></div><div class="ttdoc">Door keeps the doorstates, and have functions to open, close and construct a door.</div></div>
-<div class="ttc" id="aelevator__cab_8h_html"><div class="ttname"><a href="elevator__cab_8h.html">elevator_cab.h</a></div><div class="ttdoc">Elevator_cab stores the current direction and floor of the elevator, and constructs and initializes t...</div></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><a class="code hl_struct" href="struct_state_machine.html">StateMachine</a> <a class="code hl_function" href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">state_machine_constructor</a>(<a class="code hl_struct" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab, <a class="code hl_struct" href="struct_door.html">Door</a> door);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">initialize_state_machine</a>(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">bool</span> <a class="code hl_function" href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a>(<a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* statemachine);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a>(<span class="keywordtype">int</span> seconds, <a class="code hl_struct" href="struct_state_machine.html">StateMachine</a>* state_machine);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="ttc" id="adoor_8h_html"><div class="ttname"><a href="door_8h.html">door.h</a></div><div class="ttdoc">Door.h keeps the doorstates, and contains functions to open, close and construct a door instance.</div></div>
+<div class="ttc" id="aelevator__cab_8h_html"><div class="ttname"><a href="elevator__cab_8h.html">elevator_cab.h</a></div><div class="ttdoc">elevator_cab.h stores the current direction and floor of the elevator, and constructs and initializes...</div></div>
 <div class="ttc" id="afunctionality_8h_html_a08281bafab5e837d6f0a6924c9e89397"><div class="ttname"><a href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a></div><div class="ttdeci">bool should_stop_this_floor(StateMachine *statemachine)</div><div class="ttdoc">Determines whether the elevator should stop at the current floor.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00022">functionality.c:22</a></div></div>
-<div class="ttc" id="afunctionality_8h_html_adb2a8954815704a90cbd1771195911d4"><div class="ttname"><a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a></div><div class="ttdeci">void timer(int seconds, StateMachine *state_machine)</div><div class="ttdoc">Timer can count a given amount of seconds, and handles door-obstructions and emergencies.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00053">functionality.c:53</a></div></div>
-<div class="ttc" id="astruct_all_buttons_html"><div class="ttname"><a href="struct_all_buttons.html">AllButtons</a></div><div class="ttdoc">ALLButtons Struct representing a collection of buttons</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00018">functionality.h:18</a></div></div>
-<div class="ttc" id="astruct_door_html"><div class="ttname"><a href="struct_door.html">Door</a></div><div class="ttdoc">Door is a struct that keeps the Doorstate.</div><div class="ttdef"><b>Definition:</b> <a href="door_8h_source.html#l00022">door.h:22</a></div></div>
-<div class="ttc" id="astruct_elevator__cab_html"><div class="ttname"><a href="struct_elevator__cab.html">Elevator_cab</a></div><div class="ttdoc">Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8h_source.html#l00032">elevator_cab.h:32</a></div></div>
-<div class="ttc" id="astruct_state_machine_html"><div class="ttname"><a href="struct_state_machine.html">StateMachine</a></div><div class="ttdoc">StateMachine Struct representing a collection of states</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00034">functionality.h:34</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_a8c1077e84c6c1d268ec712f4bbe30441"><div class="ttname"><a href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">initialize_state_machine</a></div><div class="ttdeci">void initialize_state_machine(StateMachine *statemachine)</div><div class="ttdoc">Physically initializes the elevator. Calls the &quot;initilaize_elevator_cab&quot;-function.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00018">functionality.c:18</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_adb2a8954815704a90cbd1771195911d4"><div class="ttname"><a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a></div><div class="ttdeci">void timer(int seconds, StateMachine *state_machine)</div><div class="ttdoc">Timer.h can count a given amount of seconds, and handles button polling, door-obstructions and stopBu...</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00045">functionality.c:45</a></div></div>
+<div class="ttc" id="afunctionality_8h_html_af2dd361ce8ef2ea3c1046e8e429d342d"><div class="ttname"><a href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">state_machine_constructor</a></div><div class="ttdeci">StateMachine state_machine_constructor(Elevator_cab elevator_cab, Door door)</div><div class="ttdoc">Constructs and returns an instance of a statemachine.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8c_source.html#l00004">functionality.c:4</a></div></div>
+<div class="ttc" id="astruct_all_buttons_html"><div class="ttname"><a href="struct_all_buttons.html">AllButtons</a></div><div class="ttdoc">Struct representing a collection of buttons.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00016">functionality.h:16</a></div></div>
+<div class="ttc" id="astruct_door_html"><div class="ttname"><a href="struct_door.html">Door</a></div><div class="ttdoc">Struct that keeps a Doorstate.</div><div class="ttdef"><b>Definition:</b> <a href="door_8h_source.html#l00022">door.h:22</a></div></div>
+<div class="ttc" id="astruct_elevator__cab_html"><div class="ttname"><a href="struct_elevator__cab.html">Elevator_cab</a></div><div class="ttdoc">Struct that contains an elevator floor and elevator direction.</div><div class="ttdef"><b>Definition:</b> <a href="elevator__cab_8h_source.html#l00038">elevator_cab.h:38</a></div></div>
+<div class="ttc" id="astruct_state_machine_html"><div class="ttname"><a href="struct_state_machine.html">StateMachine</a></div><div class="ttdoc">Struct representing a collection of states and buttons.</div><div class="ttdef"><b>Definition:</b> <a href="functionality_8h_source.html#l00032">functionality.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

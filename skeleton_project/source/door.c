@@ -8,7 +8,7 @@ Door door_constructor(DoorState doorstate) {
 }
 
 
-void _openDoor(Door* door) {
+void open_Door(Door* door) {
     elevio_doorOpenLamp(1);
     door -> doorstate = OPEN;        
 }

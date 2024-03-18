@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="struct_door.html" title="Door is a struct that keeps the Doorstate.">Door</a> keeps the doorstates, and have functions to open, close and construct a door.  
+<p><a class="el" href="door_8h.html" title="Door.h keeps the doorstates, and contains functions to open, close and construct a door instance.">Door.h</a> keeps the doorstates, and contains functions to open, close and construct a door instance.  
 <a href="#details">More...</a></p>
 
 <p><a href="door_8h_source.html">Go to the source code of this file.</a></p>
@@ -82,7 +82,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_door.html">Door</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_door.html" title="Door is a struct that keeps the Doorstate.">Door</a> is a struct that keeps the Doorstate.  <a href="struct_door.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that keeps a <code>Doorstate</code>.  <a href="struct_door.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -90,14 +90,14 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a117f8df7c03b73093e6da94ae41b4252"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="door_8h.html#a117f8df7c03b73093e6da94ae41b4252">DoorState</a> { <b>OPEN</b> = 1
 , <b>CLOSED</b> = 0
  }</td></tr>
-<tr class="memdesc:a117f8df7c03b73093e6da94ae41b4252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Doorstate is an enum containing the doorstates <code>OPEN</code> and <code>CLOSED</code>.  <a href="door_8h.html#a117f8df7c03b73093e6da94ae41b4252">More...</a><br /></td></tr>
+<tr class="memdesc:a117f8df7c03b73093e6da94ae41b4252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum containing the doorstates <code>OPEN</code> and <code>CLOSED</code>.  <a href="door_8h.html#a117f8df7c03b73093e6da94ae41b4252">More...</a><br /></td></tr>
 <tr class="separator:a117f8df7c03b73093e6da94ae41b4252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7cf33838e98dfd8ce613c661d28dbd0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="door_8h.html#a7cf33838e98dfd8ce613c661d28dbd0e">_openDoor</a> (<a class="el" href="struct_door.html">Door</a> *door)</td></tr>
-<tr class="memdesc:a7cf33838e98dfd8ce613c661d28dbd0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the door by setting the doorlight, and changes the Doorstate to OPEN.  <a href="door_8h.html#a7cf33838e98dfd8ce613c661d28dbd0e">More...</a><br /></td></tr>
-<tr class="separator:a7cf33838e98dfd8ce613c661d28dbd0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45f88921f0aec1c9c94276dba67a042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="door_8h.html#aa45f88921f0aec1c9c94276dba67a042">open_Door</a> (<a class="el" href="struct_door.html">Door</a> *door)</td></tr>
+<tr class="memdesc:aa45f88921f0aec1c9c94276dba67a042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the door by setting the door lamp, and changes the Doorstate to OPEN.  <a href="door_8h.html#aa45f88921f0aec1c9c94276dba67a042">More...</a><br /></td></tr>
+<tr class="separator:aa45f88921f0aec1c9c94276dba67a042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac01c8b88e2466777470e2fa51e658165"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="door_8h.html#ac01c8b88e2466777470e2fa51e658165">close_door</a> (<a class="el" href="struct_door.html">Door</a> *door)</td></tr>
 <tr class="memdesc:ac01c8b88e2466777470e2fa51e658165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes door by setting the doorlight, and changes the Doorstate to CLOSED.  <a href="door_8h.html#ac01c8b88e2466777470e2fa51e658165">More...</a><br /></td></tr>
 <tr class="separator:ac01c8b88e2466777470e2fa51e658165"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,7 +106,7 @@ Functions</h2></td></tr>
 <tr class="separator:a38927b258862d6487488a8238b8ded72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="struct_door.html" title="Door is a struct that keeps the Doorstate.">Door</a> keeps the doorstates, and have functions to open, close and construct a door. </p>
+<div class="textblock"><p ><a class="el" href="door_8h.html" title="Door.h keeps the doorstates, and contains functions to open, close and construct a door instance.">Door.h</a> keeps the doorstates, and contains functions to open, close and construct a door instance. </p>
 
 <p class="definition">Definition in file <a class="el" href="door_8h_source.html">door.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -122,41 +122,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Doorstate is an enum containing the doorstates <code>OPEN</code> and <code>CLOSED</code>. </p>
+<p>Enum containing the doorstates <code>OPEN</code> and <code>CLOSED</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="door_8h_source.html#l00012">12</a> of file <a class="el" href="door_8h_source.html">door.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a7cf33838e98dfd8ce613c661d28dbd0e" name="a7cf33838e98dfd8ce613c661d28dbd0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cf33838e98dfd8ce613c661d28dbd0e">&#9670;&nbsp;</a></span>_openDoor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _openDoor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_door.html">Door</a> *&#160;</td>
-          <td class="paramname"><em>door</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens the door by setting the doorlight, and changes the Doorstate to OPEN. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">door</td><td>is a pointer to a door object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="door_8c_source.html#l00011">11</a> of file <a class="el" href="door_8c_source.html">door.c</a>.</p>
-
-</div>
-</div>
 <a id="ac01c8b88e2466777470e2fa51e658165" name="ac01c8b88e2466777470e2fa51e658165"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac01c8b88e2466777470e2fa51e658165">&#9670;&nbsp;</a></span>close_door()</h2>
 
@@ -176,7 +148,7 @@ Functions</h2></td></tr>
 <p>Closes door by setting the doorlight, and changes the Doorstate to CLOSED. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">door</td><td>is a pointer to a door object </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">door</td><td>Pointer to a door object </td></tr>
   </table>
   </dd>
 </dl>
@@ -204,13 +176,41 @@ Functions</h2></td></tr>
 <p>Constructs an instance of a door object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="struct_door.html" title="Door is a struct that keeps the Doorstate.">Door</a></td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="struct_door.html" title="Struct that keeps a Doorstate.">Door</a></td><td>sets the doorstate value of the newly created Door-instance </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>door </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the Door-instance </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="door_8c_source.html#l00004">4</a> of file <a class="el" href="door_8c_source.html">door.c</a>.</p>
+
+</div>
+</div>
+<a id="aa45f88921f0aec1c9c94276dba67a042" name="aa45f88921f0aec1c9c94276dba67a042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45f88921f0aec1c9c94276dba67a042">&#9670;&nbsp;</a></span>open_Door()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void open_Door </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_door.html">Door</a> *&#160;</td>
+          <td class="paramname"><em>door</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the door by setting the door lamp, and changes the Doorstate to OPEN. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">door</td><td>Pointer to a door object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="door_8c_source.html#l00011">11</a> of file <a class="el" href="door_8c_source.html">door.c</a>.</p>
 
 </div>
 </div>

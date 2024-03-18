@@ -74,9 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...">Elevator_cab</a> stores the current direction and floor of the elevator, and constructs and initializes the cab.  
+<p><a class="el" href="elevator__cab_8h.html" title="elevator_cab.h stores the current direction and floor of the elevator, and constructs and initializes...">elevator_cab.h</a> stores the current direction and floor of the elevator, and constructs and initializes an elevator  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;elevio.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="elevio_8h_source.html">elevio.h</a>&quot;</code><br />
 <code>#include &quot;con_load.h&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -86,7 +86,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_elevator__cab.html">Elevator_cab</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that contains an elevator floor and elevator direction <code>floor</code> Holds a floor value from the <code>Floor</code> enum <code>direction</code> Holds a motor direction value from the <code>MotorDirection</code> struct.  <a href="struct_elevator__cab.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that contains an elevator floor and elevator direction.  <a href="struct_elevator__cab.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -96,23 +96,26 @@ Enumerations</h2></td></tr>
 , <b>THIRD_FLOOR</b> = 2
 , <b>FOURTH_FLOOR</b> = 3
  }</td></tr>
-<tr class="memdesc:ae9399d58e2c13d1abe129309827e770f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floor is an enum to keep track of the defined elevator floors.  <a href="elevator__cab_8h.html#ae9399d58e2c13d1abe129309827e770f">More...</a><br /></td></tr>
+<tr class="memdesc:ae9399d58e2c13d1abe129309827e770f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum that keeps track of the defined elevator floors.  <a href="elevator__cab_8h.html#ae9399d58e2c13d1abe129309827e770f">More...</a><br /></td></tr>
 <tr class="separator:ae9399d58e2c13d1abe129309827e770f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac485965697295992f2599633a3f5126a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elevator__cab_8h.html#ac485965697295992f2599633a3f5126a">stopMotor</a> ()</td></tr>
+<tr class="memdesc:ac485965697295992f2599633a3f5126a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Physically stops the motor.  <a href="elevator__cab_8h.html#ac485965697295992f2599633a3f5126a">More...</a><br /></td></tr>
+<tr class="separator:ac485965697295992f2599633a3f5126a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab21b576bc3208f52294c7e32d4d17a68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elevator__cab_8h.html#ab21b576bc3208f52294c7e32d4d17a68">read_current_floor</a> ()</td></tr>
-<tr class="memdesc:ab21b576bc3208f52294c7e32d4d17a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads the current floor from the floor sensor  <a href="elevator__cab_8h.html#ab21b576bc3208f52294c7e32d4d17a68">More...</a><br /></td></tr>
+<tr class="memdesc:ab21b576bc3208f52294c7e32d4d17a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current floor from the floor sensor.  <a href="elevator__cab_8h.html#ab21b576bc3208f52294c7e32d4d17a68">More...</a><br /></td></tr>
 <tr class="separator:ab21b576bc3208f52294c7e32d4d17a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad23b6a66ca8118c854f521853efec1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">initialize_elevator_cab</a> (<a class="el" href="struct_elevator__cab.html">Elevator_cab</a> *elevator_cab)</td></tr>
-<tr class="memdesc:a8ad23b6a66ca8118c854f521853efec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings the elevator cab to the first floor when starting the program. Sets and checks the states floor- and direction states in order to do so.  <a href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">More...</a><br /></td></tr>
+<tr class="memdesc:a8ad23b6a66ca8118c854f521853efec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings the elevator cab to the first floor when starting the program. Sets and checks the floor- and direction states in order to do so.  <a href="elevator__cab_8h.html#a8ad23b6a66ca8118c854f521853efec1">More...</a><br /></td></tr>
 <tr class="separator:a8ad23b6a66ca8118c854f521853efec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f6397b9b2b4833c1175dc04b6bce9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_elevator__cab.html">Elevator_cab</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elevator__cab_8h.html#a63f6397b9b2b4833c1175dc04b6bce9a">elevator_cab_constructor</a> (<a class="el" href="elevator__cab_8h.html#ae9399d58e2c13d1abe129309827e770f">Floor</a> floor, MotorDirection direction)</td></tr>
-<tr class="memdesc:a63f6397b9b2b4833c1175dc04b6bce9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a pointer to an elevator_cab object  <a href="elevator__cab_8h.html#a63f6397b9b2b4833c1175dc04b6bce9a">More...</a><br /></td></tr>
+<tr class="memitem:a63f6397b9b2b4833c1175dc04b6bce9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_elevator__cab.html">Elevator_cab</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="elevator__cab_8h.html#a63f6397b9b2b4833c1175dc04b6bce9a">elevator_cab_constructor</a> (<a class="el" href="elevator__cab_8h.html#ae9399d58e2c13d1abe129309827e770f">Floor</a> floor, <a class="el" href="elevio_8h.html#ab0dd3595d7049b92115a766f0ea6f7e0">MotorDirection</a> direction)</td></tr>
+<tr class="memdesc:a63f6397b9b2b4833c1175dc04b6bce9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pointer to an <code><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction.">Elevator_cab</a></code> object.  <a href="elevator__cab_8h.html#a63f6397b9b2b4833c1175dc04b6bce9a">More...</a><br /></td></tr>
 <tr class="separator:a63f6397b9b2b4833c1175dc04b6bce9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...">Elevator_cab</a> stores the current direction and floor of the elevator, and constructs and initializes the cab. </p>
+<div class="textblock"><p ><a class="el" href="elevator__cab_8h.html" title="elevator_cab.h stores the current direction and floor of the elevator, and constructs and initializes...">elevator_cab.h</a> stores the current direction and floor of the elevator, and constructs and initializes an elevator </p>
 
 <p class="definition">Definition in file <a class="el" href="elevator__cab_8h_source.html">elevator_cab.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -128,9 +131,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Floor is an enum to keep track of the defined elevator floors. </p>
+<p>Enum that keeps track of the defined elevator floors. </p>
 
-<p class="definition">Definition at line <a class="el" href="elevator__cab_8h_source.html#l00018">18</a> of file <a class="el" href="elevator__cab_8h_source.html">elevator_cab.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elevator__cab_8h_source.html#l00024">24</a> of file <a class="el" href="elevator__cab_8h_source.html">elevator_cab.h</a>.</p>
 
 </div>
 </div>
@@ -150,7 +153,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">MotorDirection&#160;</td>
+          <td class="paramtype"><a class="el" href="elevio_8h.html#ab0dd3595d7049b92115a766f0ea6f7e0">MotorDirection</a>&#160;</td>
           <td class="paramname"><em>direction</em>&#160;</td>
         </tr>
         <tr>
@@ -161,7 +164,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>creates a pointer to an elevator_cab object </p>
+<p>Creates a pointer to an <code><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction.">Elevator_cab</a></code> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">floor</td><td>Sets the floor memeber variable of <code>elevator_cab</code> to the value of <code>floor</code> </td></tr>
@@ -169,12 +172,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>&amp;<a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...">Elevator_cab</a> dereferenced pointer value of <code>elevatro_cab</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>&amp;elevator_cab Pointer to the global variable <code>elevator_cab</code> </dd></dl>
 <ul>
-<li><code>elevator_cab</code> is a global variable in the c-file </li>
+<li><code>elevator_cab</code> is a global variable in the c-file, to later take care of the initialization of the <code>Statemachine</code> object </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00032">32</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00036">36</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
 
 </div>
 </div>
@@ -194,15 +197,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Brings the elevator cab to the first floor when starting the program. Sets and checks the states floor- and direction states in order to do so. </p>
+<p>Brings the elevator cab to the first floor when starting the program. Sets and checks the floor- and direction states in order to do so. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">elevator_cab</td><td>Pointer to an <code><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction floor Holds a floor value from the Floo...">Elevator_cab</a></code> object </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">elevator_cab</td><td>Pointer to an <code><a class="el" href="struct_elevator__cab.html" title="Struct that contains an elevator floor and elevator direction.">Elevator_cab</a></code> object </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00012">12</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00016">16</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
 
 </div>
 </div>
@@ -221,8 +224,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>reads the current floor from the floor sensor </p>
-<dl class="section return"><dt>Returns</dt><dd>int with a value from -1 to 3 depending on the floor </dd></dl>
+<p>Reads the current floor from the floor sensor. </p>
+<dl class="section return"><dt>Returns</dt><dd>integer with a value from -1 (in between floors) and 0 to 3 depending on the floor </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00010">10</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
+
+</div>
+</div>
+<a id="ac485965697295992f2599633a3f5126a" name="ac485965697295992f2599633a3f5126a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac485965697295992f2599633a3f5126a">&#9670;&nbsp;</a></span>stopMotor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopMotor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Physically stops the motor. </p>
 
 <p class="definition">Definition at line <a class="el" href="elevator__cab_8c_source.html#l00006">6</a> of file <a class="el" href="elevator__cab_8c_source.html">elevator_cab.c</a>.</p>
 

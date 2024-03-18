@@ -11,7 +11,14 @@
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+see comments in the code 
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -23,31 +30,5 @@ int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 
 
 
-Main function. 
-
-
-\begin{DoxyItemize}
-\item Before the while loop, the constructors and initilazers are called
-\item when the elevator is initialized, it is on the first floor. The direction is then set to DIRN\+\_\+\+UP right before the loop 1\+:
-\item floor of statemachine takes the value of the floor sensor
-\item updates the floor-\/lights 2\+:
-\item checks if cab should stop at defined floors (!= -\/1)
-\item opens door, calls timer and closes door again
-\item Timer has logic to handle emergencies and obstruction-\/problems
-\item if it stopes, the order gets cleared from the buttons-\/array, and the order-\/lamp is turned off 3\+:
-\item 
-\item 
-\item 4\+: the first foor-\/loop checks if any buttons are pressed on the floors above if direction is DIRN\+\_\+\+UP/ below if direction is DIRN\+\_\+\+DOWN
-\item if yes, it jumps to dir\+\_\+check using goto and sets stationary to false 5\+: the second foor-\/loop checks if any buttons are pressed on the floors in the opposide direction of what the cab has/had before it stopped
-\item if yes, it sets the direction to the opposite as the one it has now, sets stationary to false and jumps to dir\+\_\+check and 6\+: if neither of these conditions are met, it means that there are no more people in line/and stationary is set to true\+: 7\+: dir\+\_\+check
-\item if stationary is false, it sets the motor to drive in the direction stated in the statemachine
-\item if not, it stops the motor
-\end{DoxyItemize}
-
-\begin{DoxyReturn}{Returns}
-0 on successuful execution 
-\end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{main_8c_source_l00042}{42}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+Definition at line \mbox{\hyperlink{main_8c_source_l00015}{15}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
 

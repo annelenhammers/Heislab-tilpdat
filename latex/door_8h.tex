@@ -2,26 +2,26 @@
 \label{door_8h}\index{skeleton\_project/source/door.h@{skeleton\_project/source/door.h}}
 
 
-\mbox{\hyperlink{struct_door}{Door}} keeps the doorstates, and have functions to open, close and construct a door.  
+\mbox{\hyperlink{door_8h}{Door.\+h}} keeps the doorstates, and contains functions to open, close and construct a door instance.  
 
 
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_door}{Door}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_door}{Door}} is a struct that keeps the Doorstate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Struct that keeps a {\ttfamily Doorstate}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{door_8h_a117f8df7c03b73093e6da94ae41b4252}{Door\+State}} \{ {\bfseries OPEN} = 1
 , {\bfseries CLOSED} = 0
  \}
-\begin{DoxyCompactList}\small\item\em Doorstate is an enum containing the doorstates {\ttfamily OPEN} and {\ttfamily CLOSED}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enum containing the doorstates {\ttfamily OPEN} and {\ttfamily CLOSED}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{door_8h_a7cf33838e98dfd8ce613c661d28dbd0e}{\+\_\+open\+Door}} (\mbox{\hyperlink{struct_door}{Door}} $\ast$door)
-\begin{DoxyCompactList}\small\item\em Opens the door by setting the doorlight, and changes the Doorstate to OPEN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{door_8h_aa45f88921f0aec1c9c94276dba67a042}{open\+\_\+\+Door}} (\mbox{\hyperlink{struct_door}{Door}} $\ast$door)
+\begin{DoxyCompactList}\small\item\em Opens the door by setting the door lamp, and changes the Doorstate to OPEN. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\+\_\+door}} (\mbox{\hyperlink{struct_door}{Door}} $\ast$door)
 \begin{DoxyCompactList}\small\item\em Closes door by setting the doorlight, and changes the Doorstate to CLOSED. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_door}{Door}} \mbox{\hyperlink{door_8h_a38927b258862d6487488a8238b8ded72}{door\+\_\+constructor}} (\mbox{\hyperlink{door_8h_a117f8df7c03b73093e6da94ae41b4252}{Door\+State}} \mbox{\hyperlink{struct_door}{Door}})
@@ -29,7 +29,7 @@ void \mbox{\hyperlink{door_8h_ac01c8b88e2466777470e2fa51e658165}{close\+\_\+door
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{struct_door}{Door}} keeps the doorstates, and have functions to open, close and construct a door. 
+\mbox{\hyperlink{door_8h}{Door.\+h}} keeps the doorstates, and contains functions to open, close and construct a door instance. 
 
 
 
@@ -46,7 +46,7 @@ Definition in file \mbox{\hyperlink{door_8h_source}{door.\+h}}.
 
 
 
-Doorstate is an enum containing the doorstates {\ttfamily OPEN} and {\ttfamily CLOSED}. 
+Enum containing the doorstates {\ttfamily OPEN} and {\ttfamily CLOSED}. 
 
 
 
@@ -55,25 +55,6 @@ Definition at line \mbox{\hyperlink{door_8h_source_l00012}{12}} of file \mbox{\h
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{door_8h_a7cf33838e98dfd8ce613c661d28dbd0e}\label{door_8h_a7cf33838e98dfd8ce613c661d28dbd0e}} 
-\index{door.h@{door.h}!\_openDoor@{\_openDoor}}
-\index{\_openDoor@{\_openDoor}!door.h@{door.h}}
-\doxysubsubsection{\texorpdfstring{\_openDoor()}{\_openDoor()}}
-{\footnotesize\ttfamily void \+\_\+open\+Door (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_door}{Door}} $\ast$}]{door }\end{DoxyParamCaption})}
-
-
-
-Opens the door by setting the doorlight, and changes the Doorstate to OPEN. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em door} & is a pointer to a door object \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{door_8c_source_l00011}{11}} of file \mbox{\hyperlink{door_8c_source}{door.\+c}}.
-
 \mbox{\Hypertarget{door_8h_ac01c8b88e2466777470e2fa51e658165}\label{door_8h_ac01c8b88e2466777470e2fa51e658165}} 
 \index{door.h@{door.h}!close\_door@{close\_door}}
 \index{close\_door@{close\_door}!door.h@{door.h}}
@@ -86,7 +67,7 @@ Closes door by setting the doorlight, and changes the Doorstate to CLOSED.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em door} & is a pointer to a door object \\
+\mbox{\texttt{ in}}  & {\em door} & Pointer to a door object \\
 \hline
 \end{DoxyParams}
 
@@ -104,14 +85,33 @@ Definition at line \mbox{\hyperlink{door_8c_source_l00016}{16}} of file \mbox{\h
 Constructs an instance of a door object. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em \mbox{\hyperlink{struct_door}{Door}}} & \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em \mbox{\hyperlink{struct_door}{Door}}} & sets the doorstate value of the newly created Door-\/instance \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-door 
+the Door-\/instance 
 \end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{door_8c_source_l00004}{4}} of file \mbox{\hyperlink{door_8c_source}{door.\+c}}.
+
+\mbox{\Hypertarget{door_8h_aa45f88921f0aec1c9c94276dba67a042}\label{door_8h_aa45f88921f0aec1c9c94276dba67a042}} 
+\index{door.h@{door.h}!open\_Door@{open\_Door}}
+\index{open\_Door@{open\_Door}!door.h@{door.h}}
+\doxysubsubsection{\texorpdfstring{open\_Door()}{open\_Door()}}
+{\footnotesize\ttfamily void open\+\_\+\+Door (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_door}{Door}} $\ast$}]{door }\end{DoxyParamCaption})}
+
+
+
+Opens the door by setting the door lamp, and changes the Doorstate to OPEN. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em door} & Pointer to a door object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{door_8c_source_l00011}{11}} of file \mbox{\hyperlink{door_8c_source}{door.\+c}}.
 

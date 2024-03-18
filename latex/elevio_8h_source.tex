@@ -1,40 +1,41 @@
 \hypertarget{elevio_8h_source}{}\doxysection{elevio.\+h}
 \label{elevio_8h_source}\index{skeleton\_project/source/driver/elevio.h@{skeleton\_project/source/driver/elevio.h}}
-
+\mbox{\hyperlink{elevio_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00004}00004 \textcolor{preprocessor}{\#define N\_FLOORS 4}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00005}00005 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00006}00006 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{ }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00007}00007     DIRN\_DOWN   = -\/1,}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00008}00008     DIRN\_STOP   = 0,}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00009}00009     DIRN\_UP     = 1}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00010}00010 \} MotorDirection;}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00011}00011 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00012}00012 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00013}00013 \textcolor{preprocessor}{\#define N\_BUTTONS 3}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00015}00015 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{ }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00016}00016     BUTTON\_HALL\_UP      = 0,}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00017}00017     BUTTON\_HALL\_DOWN    = 1,}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00018}00018     BUTTON\_CAB          = 2}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00019}00019 \} ButtonType;}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00006}00006 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00009}00009 \textcolor{preprocessor}{\#define N\_FLOORS 4}}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00016}\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{00016}} \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{ }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00017}00017     DIRN\_DOWN   = -\/1,}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00018}00018     DIRN\_STOP   = 0,}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00019}00019     DIRN\_UP     = 1}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00020}00020 \} \mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{MotorDirection}};}
 \DoxyCodeLine{\Hypertarget{elevio_8h_source_l00021}00021 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00022}00022 \textcolor{keywordtype}{void} elevio\_init(\textcolor{keywordtype}{void}); \textcolor{comment}{//initialiserer heissystemet}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00023}00023 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00024}00024 \textcolor{keywordtype}{void} elevio\_motorDirection(MotorDirection dirn); \textcolor{comment}{//får motor til å bevege seg i angitt retning}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00025}00025 \textcolor{keywordtype}{void} elevio\_buttonLamp(\textcolor{keywordtype}{int} floor, ButtonType button, \textcolor{keywordtype}{int} value); \textcolor{comment}{// setter lys til alle knapper}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00026}00026 \textcolor{keywordtype}{void} elevio\_floorIndicator(\textcolor{keywordtype}{int} floor); \textcolor{comment}{// oppdaterer etasjeindikator}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00027}00027 \textcolor{keywordtype}{void} elevio\_doorOpenLamp(\textcolor{keywordtype}{int} value); \textcolor{comment}{// value er 0 eller 1, kontrollerer lampelys (på/av)}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00028}00028 \textcolor{keywordtype}{void} elevio\_stopLamp(\textcolor{keywordtype}{int} value); \textcolor{comment}{// value er 0 eller 1, kontrollerer stopplys (på/av)}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00029}00029 }
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00030}00030 \textcolor{keywordtype}{int} elevio\_callButton(\textcolor{keywordtype}{int} floor, ButtonType button); \textcolor{comment}{//sjekker at knapp er trykket}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00031}00031 \textcolor{keywordtype}{int} elevio\_floorSensor(\textcolor{keywordtype}{void}); \textcolor{comment}{//gir ut etasjestate}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00032}00032 \textcolor{keywordtype}{int} elevio\_stopButton(\textcolor{keywordtype}{void}); \textcolor{comment}{//gir stoppbutton-\/state}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00033}00033 \textcolor{keywordtype}{int} elevio\_obstruction(\textcolor{keywordtype}{void}); \textcolor{comment}{//gir ut obsruksjonsstate}}
-\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00023}00023 \textcolor{preprocessor}{\#define N\_BUTTONS 3}}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00025}00025 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{ }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00026}00026     BUTTON\_HALL\_UP      = 0,}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00027}00027     BUTTON\_HALL\_DOWN    = 1,}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00028}00028     BUTTON\_CAB          = 2}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00029}00029 \} ButtonType;}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00032}00032 \textcolor{keywordtype}{void} elevio\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00034}00034 \textcolor{keywordtype}{void} elevio\_motorDirection(\mbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{MotorDirection}} dirn);}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00035}00035 \textcolor{keywordtype}{void} elevio\_buttonLamp(\textcolor{keywordtype}{int} floor, ButtonType button, \textcolor{keywordtype}{int} value); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00036}00036 \textcolor{keywordtype}{void} elevio\_floorIndicator(\textcolor{keywordtype}{int} floor); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00037}00037 \textcolor{keywordtype}{void} elevio\_doorOpenLamp(\textcolor{keywordtype}{int} value); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00038}00038 \textcolor{keywordtype}{void} elevio\_stopLamp(\textcolor{keywordtype}{int} value); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00040}00040 \textcolor{keywordtype}{int} elevio\_callButton(\textcolor{keywordtype}{int} floor, ButtonType button); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00041}00041 \textcolor{keywordtype}{int} elevio\_floorSensor(\textcolor{keywordtype}{void}); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00042}00042 \textcolor{keywordtype}{int} elevio\_stopButton(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00043}00043 \textcolor{keywordtype}{int} elevio\_obstruction(\textcolor{keywordtype}{void}); }
+\DoxyCodeLine{\Hypertarget{elevio_8h_source_l00044}00044 }
 
 \end{DoxyCode}

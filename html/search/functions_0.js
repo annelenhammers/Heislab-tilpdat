@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5fopendoor_0',['_openDoor',['../door_8h.html#a7cf33838e98dfd8ce613c661d28dbd0e',1,'door.c']]]
+  ['close_5fdoor_0',['close_door',['../door_8h.html#ac01c8b88e2466777470e2fa51e658165',1,'door.c']]]
 ];

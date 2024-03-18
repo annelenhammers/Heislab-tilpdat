@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;elevio.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="elevio_8h.html">elevio.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;con_load.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">static</span> <span class="keywordtype">int</span> sockfd;</div>
@@ -115,7 +115,7 @@ $(function() {
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> elevio_motorDirection(MotorDirection dirn){</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> elevio_motorDirection(<a class="code hl_enumeration" href="elevio_8h.html#ab0dd3595d7049b92115a766f0ea6f7e0">MotorDirection</a> dirn){</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    pthread_mutex_lock(&amp;sockmtx);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    send(sockfd, (<span class="keywordtype">char</span>[4]){1, dirn}, 4, 0);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    pthread_mutex_unlock(&amp;sockmtx);</div>
@@ -198,6 +198,8 @@ $(function() {
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    pthread_mutex_unlock(&amp;sockmtx);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">return</span> buf[1];</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}</div>
+<div class="ttc" id="aelevio_8h_html"><div class="ttname"><a href="elevio_8h.html">elevio.h</a></div><div class="ttdoc">File of handed out code.</div></div>
+<div class="ttc" id="aelevio_8h_html_ab0dd3595d7049b92115a766f0ea6f7e0"><div class="ttname"><a href="elevio_8h.html#ab0dd3595d7049b92115a766f0ea6f7e0">MotorDirection</a></div><div class="ttdeci">MotorDirection</div><div class="ttdoc">MotorDirection Enum that contains the direction DIRN_DOWN, DIRN_STOP, DIRN_UP with the respective val...</div><div class="ttdef"><b>Definition:</b> <a href="elevio_8h_source.html#l00016">elevio.h:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

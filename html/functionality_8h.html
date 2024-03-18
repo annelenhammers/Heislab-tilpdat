@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Functionality keeps the final statemachine object and has does operations when the elevator is supposed to stop.  
+<p><a class="el" href="functionality_8h.html" title="functionality.h keeps the final statemachine object and contains a timer functionality and logic for ...">functionality.h</a> keeps the final statemachine object and contains a timer functionality and logic for when the elevator is supposed to stop  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="elevator__cab_8h_source.html">driver/elevator_cab.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="door_8h_source.html">door.h</a>&quot;</code><br />
@@ -84,27 +84,29 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_all_buttons.html">AllButtons</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>ALLButtons</code> Struct representing a collection of buttons  <a href="struct_all_buttons.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing a collection of buttons.  <a href="struct_all_buttons.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_state_machine.html">StateMachine</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="struct_state_machine.html" title="StateMachine Struct representing a collection of states">StateMachine</a></code> Struct representing a collection of states  <a href="struct_state_machine.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing a collection of states and buttons.  <a href="struct_state_machine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af2dd361ce8ef2ea3c1046e8e429d342d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_state_machine.html">StateMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">state_machine_constructor</a> (<a class="el" href="struct_elevator__cab.html">Elevator_cab</a> elevator_cab, <a class="el" href="struct_door.html">Door</a> door)</td></tr>
+<tr class="memdesc:af2dd361ce8ef2ea3c1046e8e429d342d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and returns an instance of a statemachine.  <a href="functionality_8h.html#af2dd361ce8ef2ea3c1046e8e429d342d">More...</a><br /></td></tr>
 <tr class="separator:af2dd361ce8ef2ea3c1046e8e429d342d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c1077e84c6c1d268ec712f4bbe30441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">initialize_state_machine</a> (<a class="el" href="struct_state_machine.html">StateMachine</a> *statemachine)</td></tr>
+<tr class="memdesc:a8c1077e84c6c1d268ec712f4bbe30441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Physically initializes the elevator. Calls the "initilaize_elevator_cab"-function.  <a href="functionality_8h.html#a8c1077e84c6c1d268ec712f4bbe30441">More...</a><br /></td></tr>
 <tr class="separator:a8c1077e84c6c1d268ec712f4bbe30441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08281bafab5e837d6f0a6924c9e89397"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">should_stop_this_floor</a> (<a class="el" href="struct_state_machine.html">StateMachine</a> *statemachine)</td></tr>
 <tr class="memdesc:a08281bafab5e837d6f0a6924c9e89397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether the elevator should stop at the current floor.  <a href="functionality_8h.html#a08281bafab5e837d6f0a6924c9e89397">More...</a><br /></td></tr>
 <tr class="separator:a08281bafab5e837d6f0a6924c9e89397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb2a8954815704a90cbd1771195911d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">timer</a> (int seconds, <a class="el" href="struct_state_machine.html">StateMachine</a> *state_machine)</td></tr>
-<tr class="memdesc:adb2a8954815704a90cbd1771195911d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer can count a given amount of seconds, and handles door-obstructions and emergencies.  <a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">More...</a><br /></td></tr>
+<tr class="memdesc:adb2a8954815704a90cbd1771195911d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer.h can count a given amount of seconds, and handles button polling, door-obstructions and stopButton-cases.  <a href="functionality_8h.html#adb2a8954815704a90cbd1771195911d4">More...</a><br /></td></tr>
 <tr class="separator:adb2a8954815704a90cbd1771195911d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Functionality keeps the final statemachine object and has does operations when the elevator is supposed to stop. </p>
+<div class="textblock"><p ><a class="el" href="functionality_8h.html" title="functionality.h keeps the final statemachine object and contains a timer functionality and logic for ...">functionality.h</a> keeps the final statemachine object and contains a timer functionality and logic for when the elevator is supposed to stop </p>
 
 <p class="definition">Definition in file <a class="el" href="functionality_8h_source.html">functionality.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -123,6 +125,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Physically initializes the elevator. Calls the "initilaize_elevator_cab"-function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">statemachine</td><td>points to a statemachine object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="functionality_8c_source.html#l00018">18</a> of file <a class="el" href="functionality_8c_source.html">functionality.c</a>.</p>
 
@@ -147,16 +157,16 @@ Functions</h2></td></tr>
 <p>Determines whether the elevator should stop at the current floor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">statemachine</td><td>is a pointer to the statemachine object, and holds elevator_cab object with the cab's last direction, current floor, and also keeps the button-array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">statemachine</td><td>Pointer to a statemachine object </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the elevator should stop at the current floor, and false otherwise</dd></dl>
 <p>The four if-statements are executed sequentially:</p><ul>
-<li>if someone wants to join the elevator in the current direction at the current floor, the elvator stops</li>
+<li>if someone wants to join the elevator in the current direction at the current floor, the elevator stops</li>
 <li>if someone wants to get off at the current floor, the elevator stops</li>
-<li>if none of the above if-statements have hits, the elevator scans the button array, looking for orders on the floors above if direction is UP, and below if direction is DOWN, to check if it should go past the current floor</li>
-<li>if there are no orders above/below, the elevator may stop to pick up passangers going the opposite direction </li>
+<li>if none of the above if-statements have any hits, the elevator scans the buttons array, looking for orders on the floors above if direction is UP, and below if direction is DOWN, to check if it should go past the current floor</li>
+<li>if there are no orders above/below, the elevator may stop to pick up passengers going the opposite direction </li>
 </ul>
 
 <p class="definition">Definition at line <a class="el" href="functionality_8c_source.html#l00022">22</a> of file <a class="el" href="functionality_8c_source.html">functionality.c</a>.</p>
@@ -189,6 +199,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs and returns an instance of a statemachine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">elevator_cab</td><td>sets the elevator_cab member of an instance of <code>Statemachine</code> to the value of <code>elevator_cab</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">door</td><td>sets the door member of an instance of <code>Statemachine</code> to the value of <code>door</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>statemachine instance </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="functionality_8c_source.html#l00004">4</a> of file <a class="el" href="functionality_8c_source.html">functionality.c</a>.</p>
 
 </div>
@@ -219,29 +239,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Timer can count a given amount of seconds, and handles door-obstructions and emergencies. </p>
+<p>Timer.h can count a given amount of seconds, and handles button polling, door-obstructions and stopButton-cases. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>Amount of seconds the timer should count <br  />
+ </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">state_machine</td><td>Pointer to a <code><a class="el" href="struct_state_machine.html" title="Struct representing a collection of states and buttons.">StateMachine</a></code> object</td></tr>
   </table>
   </dd>
 </dl>
-<p>p seconds Amount of seconds the timer should count <br  />
- </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>p state_machine Pointer to a <code><a class="el" href="struct_state_machine.html" title="StateMachine Struct representing a collection of states">StateMachine</a></code> object</p>
 <ul>
+<li>Time.h library is used for counting</li>
 <li>if three seconds has elapsed, it breaks the loop</li>
 <li>if the stopbutton is pressed, it constantly clears the Orderlist, and restarts the count. This is to ensure emergency functionality when timer is called in main</li>
 <li>if obstruction-sensor is activated, it restarts the count</li>
-<li>it also polls the Orderlist as so that orders can be registered when the timer is activated in main </li>
+<li>it also polls the orders so that orders can be registered when the timer is activated in main </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="functionality_8c_source.html#l00053">53</a> of file <a class="el" href="functionality_8c_source.html">functionality.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="functionality_8c_source.html#l00045">45</a> of file <a class="el" href="functionality_8c_source.html">functionality.c</a>.</p>
 
 </div>
 </div>
