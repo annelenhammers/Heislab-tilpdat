@@ -95,7 +95,7 @@ int main() {
             }
         }
 
-
+        //Alarm reset when inbetween floors
         if (state_machine.elevator_cab.floor == -1){
             if (state_machine.stationary){ //Alarm restart only, if the elevator stopped in between floors
                 for (int i = state_machine.prev_stop_floor + state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i += state_machine.elevator_cab.direction){ //checks floors above/below the previous known floor, depending on its last direction
@@ -122,6 +122,8 @@ int main() {
                 goto dir_check;
             }
         }
+        
+        //General direction checks
 
         //checks floors in the same direction first
         for (int i = state_machine.elevator_cab.floor + state_machine.elevator_cab.direction; i >= 0 && i < N_FLOORS; i += state_machine.elevator_cab.direction){

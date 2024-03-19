@@ -42,7 +42,7 @@ bool should_stop_this_floor(StateMachine* statemachine){
 }
 
 
-void timer(int seconds, StateMachine *state_machine) {
+void timer(int seconds, StateMachine* state_machine) {
     time_t start = time(NULL);
     time_t elapsed_time;
 

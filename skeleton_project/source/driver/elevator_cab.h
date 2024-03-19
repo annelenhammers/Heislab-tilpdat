@@ -35,6 +35,7 @@ typedef enum {
  * - @p floor Holds a floor value from the @c Floor enum
  * - @p direction Holds a motor direction value from the @c MotorDirection struct
  */
+
 typedef struct {
     
     Floor floor;
